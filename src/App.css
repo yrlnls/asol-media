@@ -307,6 +307,10 @@ p {
   gap: var(--space-2xl);
 }
 
+.nav-desktop {
+  display: flex;
+}
+
 .nav-link {
   font-size: 0.8rem;
   font-weight: 500;
@@ -373,6 +377,71 @@ p {
   height: 1px;
   background: var(--color-text-primary);
   transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.mobile-toggle.is-open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.is-open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-menu-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 5, 4, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 900;
+}
+
+.mobile-menu-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-xl) var(--space-lg);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  z-index: 950;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.mobile-nav .nav-cta {
+  width: 100%;
+  text-align: center;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 /* ============================
@@ -1483,16 +1552,30 @@ p {
   }
   
   .nav {
-    display: none;
+    gap: var(--space-lg);
   }
   
+  .nav-desktop {
+    display: none;
+  }
+
   .mobile-toggle {
     display: flex;
+  }
+
+  .mobile-menu-backdrop,
+  .mobile-menu {
+    display: block;
   }
   
   .hero-inner,
   .container {
     padding: 0 var(--space-lg);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .page-hero {
@@ -1532,6 +1615,11 @@ p {
   .btn {
     width: 100%;
     max-width: 300px;
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
   }
 }
 

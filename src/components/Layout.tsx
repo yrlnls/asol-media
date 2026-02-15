@@ -1,26 +1,144 @@
-import { Link, Outlet } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 export default function Layout() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const menuRef = useRef<HTMLDivElement | null>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
+
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', menuOpen)
+    return () => document.body.classList.remove('menu-open')
+  }, [menuOpen])
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return
+    }
+
+    const menuEl = menuRef.current
+    if (!menuEl) {
+      return
+    }
+
+    previousFocusRef.current = document.activeElement as HTMLElement | null
+
+    const getFocusable = () =>
+      Array.from(
+        menuEl.querySelectorAll<HTMLElement>(
+          'a, button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null)
+
+    const focusables = getFocusable()
+    const first = focusables[0]
+    const last = focusables[focusables.length - 1]
+
+    first?.focus()
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setMenuOpen(false)
+        return
+      }
+
+      if (event.key !== 'Tab') {
+        return
+      }
+
+      const currentFocusables = getFocusable()
+      if (currentFocusables.length === 0) {
+        return
+      }
+
+      const currentFirst = currentFocusables[0]
+      const currentLast = currentFocusables[currentFocusables.length - 1]
+      const active = document.activeElement as HTMLElement | null
+
+      if (event.shiftKey) {
+        if (active === currentFirst || active === menuEl) {
+          event.preventDefault()
+          currentLast?.focus()
+        }
+      } else if (active === currentLast) {
+        event.preventDefault()
+        currentFirst?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      previousFocusRef.current?.focus()
+    }
+  }, [menuOpen])
+
+  const navItems = [
+    { to: '/about', label: 'About', className: 'nav-link' },
+    { to: '/services', label: 'Services', className: 'nav-link' },
+    { to: '/work', label: 'Work', className: 'nav-link' },
+    { to: '/clients', label: 'Clients', className: 'nav-link' },
+    { to: '/insights', label: 'Insights', className: 'nav-link' },
+    { to: '/contact', label: 'Get in Touch', className: 'nav-cta' },
+  ]
+
   return (
     <div className="site-shell">
       <header className="header">
         <div className="header-inner">
           <Link to="/" className="logo">ASOL MEDIA</Link>
-          <nav className="nav">
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/services" className="nav-link">Services</Link>
-            <Link to="/work" className="nav-link">Work</Link>
-            <Link to="/clients" className="nav-link">Clients</Link>
-            <Link to="/insights" className="nav-link">Insights</Link>
-            <Link to="/contact" className="nav-cta">Get in Touch</Link>
+          <nav className="nav nav-desktop">
+            {navItems.map((item) => (
+              <Link key={item.to} to={item.to} className={item.className}>
+                {item.label}
+              </Link>
+            ))}
           </nav>
-          <button className="mobile-toggle">
+          <button
+            className={`mobile-toggle ${menuOpen ? 'is-open' : ''}`}
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
             <span></span>
             <span></span>
             <span></span>
           </button>
         </div>
       </header>
+
+      <button
+        type="button"
+        className={`mobile-menu-backdrop ${menuOpen ? 'open' : ''}`}
+        aria-hidden={!menuOpen}
+        aria-label="Close menu"
+        tabIndex={menuOpen ? 0 : -1}
+        onClick={() => setMenuOpen(false)}
+      />
+      <div
+        id="mobile-menu"
+        className={`mobile-menu ${menuOpen ? 'open' : ''}`}
+        aria-hidden={!menuOpen}
+        tabIndex={-1}
+        ref={menuRef}
+      >
+        <nav className="nav mobile-nav" aria-label="Mobile navigation">
+          {navItems.map((item) => (
+            <Link key={item.to} to={item.to} className={item.className}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
 
       <main>
         <Outlet />
