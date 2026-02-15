@@ -28,7 +28,10 @@ export default function Layout() {
 
       <footer className="footer">
         <div className="container footer-minimal">
-          <Link to="/" className="logo">ASOL MEDIA</Link>
+          <div className="footer-brand">
+            <Link to="/" className="logo">ASOL MEDIA</Link>
+            <div className="footer-copy">© 2026 General Exhibit. All rights reserved.</div>
+          </div>
           <div className="footer-social">
             <a href="#" aria-label="LinkedIn" className="social-link social-linkedin">
               <svg viewBox="0 0 24 24" aria-hidden="true">

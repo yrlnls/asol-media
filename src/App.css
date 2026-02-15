@@ -1202,6 +1202,12 @@ p {
   gap: var(--space-xl);
 }
 
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
 .footer-social {
   display: flex;
   gap: var(--space-xl);
@@ -1221,7 +1227,7 @@ p {
 }
 
 .footer-social a:hover {
-  color: var(--color-text-primary);
+  color: var(--social-color);
   border-color: var(--social-color);
   background: color-mix(in srgb, var(--social-color) 22%, rgba(6, 8, 6, 0.6));
   box-shadow: 0 10px 22px color-mix(in srgb, var(--social-color) 40%, transparent);
@@ -1232,6 +1238,14 @@ p {
   width: 18px;
   height: 18px;
   display: block;
+  fill: currentColor;
+}
+
+.footer-copy {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .social-linkedin {
