@@ -148,7 +148,7 @@ export default function Layout() {
         <div className="container footer-minimal">
           <div className="footer-brand">
             <Link to="/" className="logo">ASOL MEDIA</Link>
-            <div className="footer-copy">© 2026 General Exhibit. All rights reserved.</div>
+            <div className="footer-copy">© 2026 Asol Media. All rights reserved.</div>
           </div>
           <div className="footer-social">
             <a href="#" aria-label="LinkedIn" className="social-link social-linkedin">

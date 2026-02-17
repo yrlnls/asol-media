@@ -1,12 +1,27 @@
 import { Link } from 'react-router-dom'
 
-const clients = [
-  'National Government',
-  'Corporate Institutions',
-  'International NGOs',
-  'Financial Services',
-  'Infrastructure & Energy',
-  'Public Health Agencies',
+const clientLogos = [
+  {
+    name: 'Ministry of Trade',
+    src: '/Ministry%20logo.png',
+  },
+  {
+    name: 'PBORA',
+    src: '/PBORA%20FINAL%20LOGO.png',
+  },
+  {
+    name: 'PS',
+    src: '/PS%20NO%20BG.png',
+  },
+  {
+    name: 'Nam Lolwe',
+    src: '/NAM%20LOLWE%20LOGO.PNG',
+  },
+  {
+    name: 'Client Logo',
+    src: '/1000329968-removebg.png',
+  },
+
 ]
 
 const testimonials = [
@@ -52,8 +67,10 @@ export default function Clients() {
           </div>
 
           <div className="client-logos">
-            {clients.map((client, index) => (
-              <div key={index} className="client-logo-item">{client}</div>
+            {clientLogos.map((logo, index) => (
+              <div key={index} className="client-logo-item">
+                <img src={logo.src} alt={logo.name} loading="lazy" decoding="async" />
+              </div>
             ))}
           </div>
 
