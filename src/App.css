@@ -1558,6 +1558,27 @@ body.menu-open {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .page-hero {
+    min-height: auto;
+  }
+
+  .page-hero-media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .media-shell {
+    width: min(520px, 100%);
+  }
+
+  .case-study {
+    padding: var(--space-2xl);
+  }
+
+  .case-study-meta {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1568,6 +1589,14 @@ body.menu-open {
     --space-3xl: 2.5rem;
   }
   
+  .header {
+    padding: 0 var(--space-lg);
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
   .nav {
     gap: var(--space-lg);
   }
@@ -1595,6 +1624,15 @@ body.menu-open {
     align-items: stretch;
   }
 
+  .hero {
+    min-height: auto;
+    padding-bottom: var(--space-4xl);
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
   .page-hero {
     padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-4xl);
   }
@@ -1605,6 +1643,43 @@ body.menu-open {
 
   .media-shell {
     min-height: 260px;
+  }
+
+  .page-hero-content p {
+    font-size: 1rem;
+  }
+
+  .service-division {
+    padding: var(--space-xl);
+  }
+
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  .service-item {
+    padding: var(--space-lg);
+  }
+
+  .case-study {
+    padding: var(--space-xl);
+  }
+
+  .client-logos {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .client-logo-item {
+    padding: var(--space-lg);
+  }
+
+  .form-panel {
+    padding: var(--space-2xl);
+  }
+
+  .modal-content {
+    padding: var(--space-2xl);
   }
   
   .credibility-inner {
@@ -1640,6 +1715,61 @@ body.menu-open {
   }
 }
 
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+
+  .hero-actions,
+  .page-hero-actions,
+  .cta-actions,
+  .form-actions {
+    gap: var(--space-sm);
+  }
+
+  .page-hero {
+    padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-3xl);
+  }
+
+  .media-shell {
+    min-height: 220px;
+  }
+
+  .media-shell.small {
+    min-height: 180px;
+  }
+
+  .media-placeholder {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .case-study-outcome {
+    margin-bottom: var(--space-lg);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 @media (max-width: 480px) {
   h1 {
     font-size: 2.25rem;
@@ -1659,6 +1789,16 @@ body.menu-open {
   
   .insights-grid {
     grid-template-columns: 1fr;
+  }
+
+  .client-logos {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+
+  .page-hero-actions .btn,
+  .hero-actions .btn,
+  .cta-actions .btn {
+    max-width: none;
   }
 }
 

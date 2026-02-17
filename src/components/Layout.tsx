@@ -2,14 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
 export default function Layout() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpenedOnPath, setMenuOpenedOnPath] = useState<string | null>(null)
   const location = useLocation()
   const menuRef = useRef<HTMLDivElement | null>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
+  const menuOpen = menuOpenedOnPath === location.pathname
 
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
+  const closeMenu = () => setMenuOpenedOnPath(null)
+
+  const toggleMenu = () => {
+    setMenuOpenedOnPath((currentPath) =>
+      currentPath === location.pathname ? null : location.pathname,
+    )
+  }
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen)
@@ -37,7 +42,6 @@ export default function Layout() {
 
     const focusables = getFocusable()
     const first = focusables[0]
-    const last = focusables[focusables.length - 1]
 
     first?.focus()
 
@@ -104,11 +108,11 @@ export default function Layout() {
           <button
             className={`mobile-toggle ${menuOpen ? 'is-open' : ''}`}
             type="button"
-            aria-label="Toggle navigation"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMenuOpen((prev) => !prev)}
-          >
+        aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        onClick={toggleMenu}
+      >
             <span></span>
             <span></span>
             <span></span>
@@ -122,7 +126,7 @@ export default function Layout() {
         aria-hidden={!menuOpen}
         aria-label="Close menu"
         tabIndex={menuOpen ? 0 : -1}
-        onClick={() => setMenuOpen(false)}
+        onClick={closeMenu}
       />
       <div
         id="mobile-menu"
@@ -133,7 +137,7 @@ export default function Layout() {
       >
         <nav className="nav mobile-nav" aria-label="Mobile navigation">
           {navItems.map((item) => (
-            <Link key={item.to} to={item.to} className={item.className}>
+            <Link key={item.to} to={item.to} className={item.className} onClick={closeMenu}>
               {item.label}
             </Link>
           ))}
