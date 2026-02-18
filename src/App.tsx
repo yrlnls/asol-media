@@ -1,13 +1,15 @@
+import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import Home from './pages/Home'
-import About from './pages/About'
-import Services from './pages/Services'
-import Work from './pages/Work'
-import Clients from './pages/Clients'
-import Insights from './pages/Insights'
-import Contact from './pages/Contact'
 import './App.css'
+
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Services = lazy(() => import('./pages/Services'))
+const Work = lazy(() => import('./pages/Work'))
+const Clients = lazy(() => import('./pages/Clients'))
+const Insights = lazy(() => import('./pages/Insights'))
+const Contact = lazy(() => import('./pages/Contact'))
 
 function App() {
   return (
@@ -26,5 +28,4 @@ function App() {
 }
 
 export default App
-
 

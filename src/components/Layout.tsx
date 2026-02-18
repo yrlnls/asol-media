@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
 export default function Layout() {
@@ -20,6 +20,12 @@ export default function Layout() {
     document.body.classList.toggle('menu-open', menuOpen)
     return () => document.body.classList.remove('menu-open')
   }, [menuOpen])
+
+  useEffect(() => {
+    if (menuOpenedOnPath && menuOpenedOnPath !== location.pathname) {
+      setMenuOpenedOnPath(null)
+    }
+  }, [location.pathname, menuOpenedOnPath])
 
   useEffect(() => {
     if (!menuOpen) {
@@ -48,7 +54,7 @@ export default function Layout() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault()
-        closeMenu()
+        setMenuOpenedOnPath(null)
         return
       }
 
@@ -80,7 +86,10 @@ export default function Layout() {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
-      previousFocusRef.current?.focus()
+      const previousFocus = previousFocusRef.current
+      if (previousFocus && document.contains(previousFocus)) {
+        previousFocus.focus()
+      }
     }
   }, [menuOpen])
 
@@ -95,10 +104,11 @@ export default function Layout() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="header">
         <div className="header-inner">
           <Link to="/" className="logo">ASOL MEDIA</Link>
-          <nav className="nav nav-desktop">
+          <nav className="nav nav-desktop" aria-label="Primary">
             {navItems.map((item) => (
               <Link key={item.to} to={item.to} className={item.className}>
                 {item.label}
@@ -108,11 +118,11 @@ export default function Layout() {
           <button
             className={`mobile-toggle ${menuOpen ? 'is-open' : ''}`}
             type="button"
-        aria-label="Toggle navigation"
-        aria-expanded={menuOpen}
-        aria-controls="mobile-menu"
-        onClick={toggleMenu}
-      >
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={toggleMenu}
+          >
             <span></span>
             <span></span>
             <span></span>
@@ -144,8 +154,16 @@ export default function Layout() {
         </nav>
       </div>
 
-      <main>
-        <Outlet />
+      <main id="main-content" tabIndex={-1}>
+        <Suspense
+          fallback={(
+            <div className="page-loader" role="status" aria-live="polite">
+              Loading content...
+            </div>
+          )}
+        >
+          <Outlet />
+        </Suspense>
       </main>
 
       <footer className="footer">
