@@ -48,7 +48,7 @@ export default function Layout() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault()
-        setMenuOpen(false)
+        closeMenu()
         return
       }
 
