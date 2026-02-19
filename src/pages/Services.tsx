@@ -11,7 +11,11 @@ type ServiceCta = {
 type Service = {
   id: string
   title: string
-  summary: string
+  image: {
+    src: string
+    alt: string
+  }
+  // summary: string
   intro: string
   highlights: string[]
   whatWeDo: string[]
@@ -23,7 +27,11 @@ const services: Service[] = [
   {
     id: 'videography',
     title: 'Videography',
-    summary: 'Story-first event and brand films that feel as real as the moment.',
+    image: {
+      src: '/videography.jpg',
+      alt: 'Videography production in progress',
+    },
+    // summary: 'Story-first event and brand films that feel as real as the moment.',
     intro:
       'Think about the last event you attended - the nervous excitement backstage, the speeches, the laughter, the music. Now imagine being able to relive every moment exactly as it felt. That is what we do. Every video tells a story, not just records it.',
     highlights: ['Event videography', 'Brand and promotional videos', 'Documentary-style storytelling'],
@@ -44,7 +52,11 @@ const services: Service[] = [
   {
     id: 'photography',
     title: 'Photography',
-    summary: 'Natural, candid photography that preserves the energy of real moments.',
+    image: {
+      src: '/photography.jpg',
+      alt: 'Photography coverage at an event',
+    },
+    // summary: 'Natural, candid photography that preserves the energy of real moments.',
     intro:
       'A photo is not just a picture - it is a memory frozen in time. Think of a product launch, a smiling team at a conference, or candid moments at an event. That is what we capture, naturally, without staging or interrupting the flow.',
     highlights: ['Event photography', 'Corporate portraits and headshots', 'Brand and product photography'],
@@ -65,7 +77,11 @@ const services: Service[] = [
   {
     id: 'aerial',
     title: 'Aerial Photography and Videography',
-    summary: 'A higher perspective with safe, cinematic drone capture.',
+    image: {
+      src: '/aerial-photo-video.jpg',
+      alt: 'Aerial photography and videography',
+    },
+    // summary: 'A higher perspective with safe, cinematic drone capture.',
     intro:
       'Some stories need a higher perspective - like capturing a wedding venue, corporate retreat, or property from above. Our drones give your story scale, perspective, and cinematic impact.',
     highlights: ['Aerial photography', 'Aerial videography', 'Cinematic aerial shots'],
@@ -83,7 +99,11 @@ const services: Service[] = [
   {
     id: 'film-production',
     title: 'Film Production',
-    summary: 'Cinematic short films and documentaries built for emotion and meaning.',
+    image: {
+      src: '/film-production.jpg',
+      alt: 'Film production setup',
+    },
+    // summary: 'Cinematic short films and documentaries built for emotion and meaning.',
     intro:
       'Film is powerful. Remember the last short film or documentary that stayed with you? That feeling of journey, emotion, and meaning - that is what we create. We turn stories into cinematic experiences.',
     highlights: ['Short films', 'Documentary films', 'Script-to-screen production support'],
@@ -101,7 +121,11 @@ const services: Service[] = [
   {
     id: 'livestreaming',
     title: 'Livestreaming and Event Broadcasting',
-    summary: 'Reliable livestreams that keep your audience fully connected.',
+    image: {
+      src: '/live-event.jpg',
+      alt: 'Live event broadcasting setup',
+    },
+    // summary: 'Reliable livestreams that keep your audience fully connected.',
     intro:
       'Ever watched a live event online and felt frustrated because the video kept cutting out? We make sure that never happens. From conferences to community events, our livestreams make viewers feel like they are right there.',
     highlights: ['Conferences and seminars', 'Hybrid events', 'Event recording for future use'],
@@ -119,7 +143,11 @@ const services: Service[] = [
   {
     id: 'content-creation',
     title: 'Content Creation',
-    summary: 'Scroll-stopping social content built for relevance and consistency.',
+    image: {
+      src: '/content-creation.jpg',
+      alt: 'Content creation for brands',
+    },
+    // summary: 'Scroll-stopping social content built for relevance and consistency.',
     intro:
       'Think of the last social media post that made you stop scrolling - maybe it was funny, inspiring, or beautiful. That is the kind of content we create: natural, engaging, and memorable.',
     highlights: ['Social media videos and reels', 'Campaign-based content', 'Monthly content packages'],
@@ -137,7 +165,11 @@ const services: Service[] = [
   {
     id: 'post-production',
     title: 'Video Editing and Post-Production',
-    summary: 'Polished edits that keep the story clear, fluid, and engaging.',
+    image: {
+      src: '/video-editing.jpg',
+      alt: 'Video editing and post-production',
+    },
+    // summary: 'Polished edits that keep the story clear, fluid, and engaging.',
     intro:
       'Raw footage is like an uncut story. We take it and turn it into something polished, coherent, and captivating. Every edit is made with intention.',
     highlights: ['Video editing', 'Color correction and grading', 'Sound enhancement'],
@@ -155,7 +187,11 @@ const services: Service[] = [
   {
     id: 'event-packages',
     title: 'Event Media Packages',
-    summary: 'One team, complete event coverage, zero stress.',
+    image: {
+      src: '/event-support.jpg',
+      alt: 'Event media support crew',
+    },
+    // summary: 'One team, complete event coverage, zero stress.',
     intro:
       'Imagine handing your entire event to one team and knowing every photo, video, and livestream will be covered. That is what our packages do - complete coverage without the stress.',
     highlights: ['Combined video and photo', 'Photography and livestreaming', 'Custom packages'],
@@ -172,7 +208,11 @@ const services: Service[] = [
   {
     id: 'corporate-media',
     title: 'Corporate and Institutional Media Services',
-    summary: 'Professional media that communicates organizational stories with clarity.',
+    image: {
+      src: '/corporate-institution.jpg',
+      alt: 'Corporate and institutional media',
+    },
+    // summary: 'Professional media that communicates organizational stories with clarity.',
     intro:
       'Every organization has stories worth sharing - from milestone projects to training programs. We help tell those stories clearly and professionally, making them resonate with the right audience.',
     highlights: ['Corporate profile videos', 'Training and internal comms', 'Professional media coverage'],
@@ -189,7 +229,11 @@ const services: Service[] = [
   {
     id: 'media-crew',
     title: 'Media Crew and Event Support',
-    summary: 'Dependable crews that keep production smooth under pressure.',
+    image: {
+      src: '/event-support.jpg',
+      alt: 'Event media support crew',
+    },
+    // summary: 'Dependable crews that keep production smooth under pressure.',
     intro:
       'Behind every great shoot is a team that makes it look effortless. Our crew has seen live events, last-minute changes, and technical challenges - and knows how to stay calm and capture the perfect shot.',
     highlights: ['Camera operators', 'Drone operators', 'Livestream technicians'],
@@ -256,21 +300,27 @@ export default function Services() {
       <section id="services" className="section services">
         <div className="container">
           <div className="section-header center">
-            <span className="eyebrow">Services Overview</span>
-            <h2>Everything you need to capture, craft, and communicate</h2>
-            <p>
+            {/* <span className="eyebrow">Our Services</span> */}
+            {/* <h2>Everything you need to capture, craft, and communicate</h2> */}
+            {/* <p>
               See the essentials here. Click a service to view the full scope, process, and next steps.
-            </p>
+            </p> */}
           </div>
 
           <div className="services-grid">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <article key={service.id} className="service-card">
-                <div className="service-card-meta">
-                  <span className="label">Service {String(index + 1).padStart(2, '0')}</span>
+                <div className="service-card-media">
+                  <img
+                    src={service.image.src}
+                    alt={service.image.alt}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
                 </div>
                 <h3>{service.title}</h3>
-                <p className="service-card-summary">{service.summary}</p>
+                {/* <p className="service-card-summary">{service.summary}</p> */}
                 <ul className="service-card-highlights">
                   {service.highlights.map((highlight) => (
                     <li key={highlight}>{highlight}</li>

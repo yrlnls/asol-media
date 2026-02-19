@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 
 export default function Layout() {
   const [menuOpenedOnPath, setMenuOpenedOnPath] = useState<string | null>(null)
@@ -110,9 +110,13 @@ export default function Layout() {
           <Link to="/" className="logo">ASOL MEDIA</Link>
           <nav className="nav nav-desktop" aria-label="Primary">
             {navItems.map((item) => (
-              <Link key={item.to} to={item.to} className={item.className}>
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => `${item.className}${isActive ? ' active' : ''}`}
+              >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
           <button
@@ -147,9 +151,14 @@ export default function Layout() {
       >
         <nav className="nav mobile-nav" aria-label="Mobile navigation">
           {navItems.map((item) => (
-            <Link key={item.to} to={item.to} className={item.className} onClick={closeMenu}>
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) => `${item.className}${isActive ? ' active' : ''}`}
+              onClick={closeMenu}
+            >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
       </div>
