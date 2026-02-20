@@ -2,69 +2,89 @@ import { Link } from 'react-router-dom'
 
 export default function About() {
   return (
-    <>
-      <section className="page-hero">
-        <div className="page-hero-inner">
-          <div className="page-hero-content">
-            <span className="eyebrow">Who We Are</span>
-            <h1>Visual narratives built for institutions that matter.</h1>
+    <div className="about-page">
+      <section className="section about-compact">
+        <div className="container">
+          <div className="panel center-panel">
+            <span className="eyebrow">Why We Create</span>
+            <h1>We believe strong stories deserve thoughtful execution.</h1>
             <p>
-              Asol Media blends documentary authenticity with cinematic precision to help institutions
-              communicate with clarity, trust, and authority.
+              Founded in 2020 in Nairobi, Kenya, ASOL MEDIA blends artistry, technical precision, and
+              cultural context to create visual stories that feel human, intentional, and lasting.
             </p>
             <div className="page-hero-actions">
               <Link className="btn btn-primary" to="/contact">Start a Project</Link>
-              <Link className="btn btn-secondary" to="/work">View Case Studies</Link>
-            </div>
-          </div>
-          <div className="page-hero-media">
-            <div className="media-shell">
-              <div className="media-placeholder">Placeholder</div>
+              <Link className="btn btn-secondary" to="/services">Explore Services</Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="section about">
+      <section className="section">
         <div className="container">
-          <div className="about-grid">
-            <div className="about-content panel">
-              <span className="eyebrow">Our Approach</span>
-              <h2>Strategic storytelling engineered for impact.</h2>
+          <div className="panel about-profile">
+            <div>
+              <span className="eyebrow">Meet Donald Miseda</span>
+              <h2>Founder & Lead Creative Director</h2>
               <p>
-                Asol Media was founded on a simple premise: institutions serving the public good deserve
-                visual communications as sophisticated as their mission.
-              </p>
-              <p>
-                We align narrative, production, and stakeholder needs to craft films and media that elevate
-                credibility while moving audiences to action.
-              </p>
-              <p>
-                Our team brings together expertise from journalism, film production, and strategic
-                communications to deliver work that resonates across cultures and decision-makers.
+                Donald is a Nairobi-based creative leader specializing in filmmaking, photography, and
+                visual storytelling. He founded ASOL MEDIA in 2020 to deliver world-class production
+                with a deep focus on client outcomes.
               </p>
             </div>
-            <div className="about-stats">
-              <div className="stat">
-                <div className="stat-number">150+</div>
-                <div className="stat-label">Projects Delivered</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">50+</div>
-                <div className="stat-label">Institutional Clients</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">8</div>
-                <div className="stat-label">Years of Excellence</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">12</div>
-                <div className="stat-label">Countries Served</div>
-              </div>
+            <div className="media-shell small">
+              <div className="media-placeholder">Founder Portrait</div>
             </div>
           </div>
         </div>
       </section>
-    </>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-header center">
+            <span className="eyebrow">Awards</span>
+            <h2>Recognition for excellence.</h2>
+          </div>
+          <div className="panel">
+            <ul className="about-list">
+              <li>2023 Best Producer — Nairobi Diocese Youth Ministry Film Competition</li>
+              <li>Best Cinematography</li>
+              <li>Best Editing</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section about-team">
+        <div className="container">
+          <div className="section-header center">
+            <span className="eyebrow">Meet Our Team</span>
+            <h2>Small team. Big results.</h2>
+            <p>Experienced specialists who keep every production smooth and story-first.</p>
+          </div>
+          <div className="grid-3">
+            <article className="team-card">
+              <h3>Denis Adhoch</h3>
+              <p className="team-role">Project Manager</p>
+              <p>Denis keeps projects on time and communication clear from start to finish.</p>
+            </article>
+            <article className="team-card">
+              <h3>Sarah Natasha</h3>
+              <p className="team-role">Lead Graphics Design</p>
+              <p>Natasha delivers captivating graphics that complement our visual narratives.</p>
+            </article>
+            <article className="team-card">
+              <h3>Joshua Orwa</h3>
+              <p className="team-role">Head Livestream Expert</p>
+              <p>Joshua ensures high-quality live broadcasts that engage audiences anywhere.</p>
+            </article>
+          </div>
+          <p className="team-note">
+            Supported by a trusted crew of videographers, photographers, and production specialists.
+          </p>
+        </div>
+      </section>
+
+    </div>
   )
 }

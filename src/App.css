@@ -880,6 +880,155 @@ body.menu-open {
 }
 
 /* ============================
+   About Detail Blocks
+   ============================ */
+.about-strengths {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.strength-card {
+  padding: var(--space-xl);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.strength-card h3 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.2rem;
+}
+
+.strength-card p {
+  margin: 0;
+}
+
+.about-list {
+  list-style: none;
+  margin: var(--space-lg) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.about-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.service-tile {
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-height: 100%;
+}
+
+.team-card {
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.team-card p {
+  margin: 0;
+}
+
+.team-role {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+.team-cta {
+  margin-top: var(--space-2xl);
+  justify-content: center;
+}
+
+/* ============================
+   Compact About
+   ============================ */
+.about-compact {
+  padding-top: calc(var(--space-4xl) + var(--space-lg));
+  padding-bottom: var(--space-2xl);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(var(--color-accent-rgb), 0.08), transparent 60%),
+    var(--color-bg-primary);
+}
+
+.about-compact h1 {
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+}
+
+.about-page h2 {
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+}
+
+.about-page .section {
+  padding: var(--space-3xl) 0;
+}
+
+.about-page .section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.center-panel {
+  text-align: center;
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.center-panel .page-hero-actions {
+  justify-content: center;
+}
+
+.about-profile {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.about-profile h2 {
+  margin-bottom: var(--space-md);
+}
+
+.step-card {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.team-note {
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ============================
    Services Section
    ============================ */
 .services {
@@ -1721,6 +1870,15 @@ body.menu-open {
 
   .media-shell {
     width: min(520px, 100%);
+  }
+
+  .about-profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-profile .media-shell {
+    margin: 0 auto;
   }
 
   .case-study {
