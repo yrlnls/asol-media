@@ -22,13 +22,17 @@ const clientLogos: ClientLogo[] = [
     src: '/PS%20NO%20BG.png',
   },
   {
-    name: 'Nam Lolwe',
+    name: 'Nam-Lolwe',
     src: '/NAM%20LOLWE%20LOGO.PNG',
   },
   {
     name: 'Client Logo',
     src: '/1000329968-removebg.png',
   },
+  {
+    name: 'Flamingo',
+    src: '/FLAMINGO%20GROUP.png',
+  }
 ]
 
 export default function ClientLogoGrid() {
