@@ -197,6 +197,12 @@ export default function Layout() {
                 <path d="M23 12.2c0-2-.2-3.4-.5-4.1-.3-.8-1.1-1.4-2-1.6C18.8 6 12 6 12 6s-6.8 0-8.5.5c-.9.2-1.7.8-2 1.6C1.2 8.8 1 10.2 1 12.2s.2 3.4.5 4.1c.3.8 1.1 1.4 2 1.6 1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5c.9-.2 1.7-.8 2-1.6.3-.7.5-2.1.5-4.1zM10 15.3v-6.6l6 3.3-6 3.3z" />
               </svg>
             </a>
+            <a href="https://asolmediaproduction.passgallery.com/client" aria-label="Pass Gallery" className="social-link social-passgallery" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 18V6h5a3 3 0 0 1 0 6H6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M18 9.5a4.5 4.5 0 1 0 0 5H15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </div>
       </footer>

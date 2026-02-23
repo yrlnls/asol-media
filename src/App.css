@@ -1646,6 +1646,10 @@ body.menu-open {
   --social-color: #ff0000;
 }
 
+.social-passgallery {
+  --social-color: #f5b54a;
+}
+
 /* ============================
    Buttons
    ============================ */
