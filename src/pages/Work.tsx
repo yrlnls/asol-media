@@ -1,95 +1,59 @@
-import { Link } from 'react-router-dom'
-
-const caseStudies = [
-  {
-    client: 'Ministry of Trade',
-    title: 'National Export Initiative Campaign',
-    year: '2024',
-    objective: "Showcase export potential to international investors",
-    approach: 'Cinematic documentary style highlighting success stories',
-    outcome: '2M+ views, featured at trade summit, increased investor inquiries by 40%',
-  },
-  {
-    client: 'Kenya Airways',
-    title: 'Corporate Reimagined',
-    year: '2023',
-    objective: 'Position the airline as the pride of African aviation',
-    approach: 'Premium brand film combining heritage with innovation',
-    outcome: 'Award-winning campaign and improved brand perception',
-  },
-]
+import { useEffect, useRef, useState, type MouseEvent } from 'react'
+import Modal from '../components/Modal'
+import ServiceModalActions from '../components/services/ServiceModalActions'
+import ServiceModalContent from '../components/services/ServiceModalContent'
+import ServicesGrid from '../components/services/ServicesGrid'
+import { workCategories } from '../data/workCategories'
 
 export default function Work() {
+  const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
+  const triggerRef = useRef<HTMLElement | null>(null)
+
+  const activeCategory =
+    workCategories.find((category) => category.id === activeCategoryId) ?? null
+
+  useEffect(() => {
+    if (activeCategoryId !== null) return
+    const trigger = triggerRef.current
+    if (trigger && document.contains(trigger)) {
+      trigger.focus()
+    }
+  }, [activeCategoryId])
+
+  const openCategory = (categoryId: string, event: MouseEvent<HTMLButtonElement>) => {
+    triggerRef.current = event.currentTarget
+    setActiveCategoryId(categoryId)
+  }
+
+  const closeCategory = () => setActiveCategoryId(null)
+
   return (
     <>
-      <section className="page-hero">
-        <div className="page-hero-inner">
-          <div className="page-hero-content">
-            <span className="eyebrow">Selected Work</span>
-            <h1>Case studies demonstrating measurable impact.</h1>
-            <p>Strategic visual solutions for complex institutional challenges across public and corporate sectors.</p>
-            <div className="page-hero-actions">
-              <Link className="btn btn-primary" to="/contact">Discuss a Project</Link>
-              <Link className="btn btn-secondary" to="/insights">View Insights</Link>
-            </div>
-          </div>
-          <div className="page-hero-media">
-            <div className="media-shell">
-              <div className="media-placeholder">Placeholder</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section id="work" className="section work">
         <div className="container">
           <div className="section-header center">
-            <span className="eyebrow">Case Studies</span>
-            <h2>Evidence of credibility and outcomes</h2>
-            <p>Each engagement is built on strategy, disciplined production, and measurable results.</p>
+            <span className="eyebrow">Coverage Areas</span>
+            <h2>Event categories we document end-to-end.</h2>
+            <p>From public institutions to private celebrations, we tailor coverage to each moment.</p>
           </div>
 
-          <div className="case-studies">
-            {caseStudies.map((study, index) => (
-              <article key={index} className="case-study">
-                <div className="case-study-visual">
-                  <div className="media-shell small">
-                    <div className="media-placeholder">{study.client}</div>
-                  </div>
-                </div>
-                <div className="case-study-content">
-                  <span className="case-study-label">Case Study</span>
-                  <h3>{study.title}</h3>
-                  <div className="case-study-meta">
-                    <div className="meta-item">
-                      <label>Client</label>
-                      <span>{study.client}</span>
-                    </div>
-                    <div className="meta-item">
-                      <label>Year</label>
-                      <span>{study.year}</span>
-                    </div>
-                    <div className="meta-item">
-                      <label>Objective</label>
-                      <span>{study.objective}</span>
-                    </div>
-                    <div className="meta-item">
-                      <label>Approach</label>
-                      <span>{study.approach}</span>
-                    </div>
-                  </div>
-                  <p className="case-study-outcome">
-                    <strong>Outcome:</strong> {study.outcome}
-                  </p>
-                  <Link to="/contact" className="case-study-link">
-                    Discuss similar project
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ServicesGrid
+            services={workCategories}
+            activeServiceId={activeCategoryId}
+            onOpen={openCategory}
+          />
         </div>
       </section>
+
+      <Modal
+        isOpen={Boolean(activeCategory)}
+        onClose={closeCategory}
+        title={activeCategory?.title}
+        actions={activeCategory && <ServiceModalActions service={activeCategory} />}
+      >
+        {activeCategory && <ServiceModalContent service={activeCategory} />}
+      </Modal>
     </>
   )
 }

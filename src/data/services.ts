@@ -23,7 +23,7 @@ export const services: Service[] = [
     id: 'videography',
     title: 'Videography',
     image: {
-      src: '/videography.jpg',
+      src: '/videography.webp',
       alt: 'Videography production in progress',
     },
     intro:
@@ -47,7 +47,7 @@ export const services: Service[] = [
     id: 'photography',
     title: 'Photography',
     image: {
-      src: '/photography.jpg',
+      src: '/photography.webp',
       alt: 'Photography coverage at an event',
     },
     intro:
@@ -71,7 +71,7 @@ export const services: Service[] = [
     id: 'aerial',
     title: 'Aerial Photography and Videography',
     image: {
-      src: '/aerial-photo-video.jpg',
+      src: '/aerial-photo-video.webp',
       alt: 'Aerial photography and videography',
     },
     intro:
@@ -92,7 +92,7 @@ export const services: Service[] = [
     id: 'film-production',
     title: 'Film Production',
     image: {
-      src: '/film-production.jpg',
+      src: '/film-production.webp',
       alt: 'Film production setup',
     },
     intro:
@@ -113,7 +113,7 @@ export const services: Service[] = [
     id: 'livestreaming',
     title: 'Livestreaming and Event Broadcasting',
     image: {
-      src: '/live-event.jpg',
+      src: '/live-event.webp',
       alt: 'Live event broadcasting setup',
     },
     intro:
@@ -134,7 +134,7 @@ export const services: Service[] = [
     id: 'content-creation',
     title: 'Content Creation',
     image: {
-      src: '/content-creation.jpg',
+      src: '/content-creation.webp',
       alt: 'Content creation for brands',
     },
     intro:
@@ -155,7 +155,7 @@ export const services: Service[] = [
     id: 'post-production',
     title: 'Video Editing and Post-Production',
     image: {
-      src: '/video-editing.jpg',
+      src: '/video-editing.webp',
       alt: 'Video editing and post-production',
     },
     intro:
@@ -176,7 +176,7 @@ export const services: Service[] = [
     id: 'event-packages',
     title: 'Event Media Packages',
     image: {
-      src: '/event-support.jpg',
+      src: '/event-support.webp',
       alt: 'Event media support crew',
     },
     intro:
@@ -196,7 +196,7 @@ export const services: Service[] = [
     id: 'corporate-media',
     title: 'Corporate and Institutional Media Services',
     image: {
-      src: '/corporate-institution.jpg',
+      src: '/corporate-institution.webp',
       alt: 'Corporate and institutional media',
     },
     intro:
@@ -216,7 +216,7 @@ export const services: Service[] = [
     id: 'media-crew',
     title: 'Media Crew and Event Support',
     image: {
-      src: '/event-support.jpg',
+      src: '/event-support.webp',
       alt: 'Event media support crew',
     },
     intro:

@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import ImageWithFallback from '../ImageWithFallback'
 
 type ClientLogo = {
   name: string
@@ -9,29 +10,29 @@ type ClientLogo = {
 const clientLogos: ClientLogo[] = [
   {
     name: 'Ministry of Trade',
-    src: '/Ministry%20logo.png',
+    src: '/Ministry%20logo.webp',
     scale: 1.2,
   },
   {
     name: 'PBORA',
-    src: '/PBORA%20FINAL%20LOGO.png',
+    src: '/PBORA%20FINAL%20LOGO.webp',
     scale: 1.2,
   },
   {
     name: 'PS',
-    src: '/PS%20NO%20BG.png',
+    src: '/PS%20NO%20BG.webp',
   },
   {
     name: 'Nam-Lolwe',
-    src: '/NAM%20LOLWE%20LOGO.PNG',
+    src: '/NAM%20LOLWE%20LOGO.webp',
   },
   {
     name: 'Client Logo',
-    src: '/1000329968-removebg.png',
+    src: '/1000329968-removebg.webp',
   },
   {
     name: 'Flamingo',
-    src: '/FLAMINGO%20GROUP.png',
+    src: '/FLAMINGO%20GROUP.webp',
   }
 ]
 
@@ -40,11 +41,9 @@ export default function ClientLogoGrid() {
     <div className="client-logos">
       {clientLogos.map((logo) => (
         <div key={logo.name} className="client-logo-item">
-          <img
+          <ImageWithFallback
             src={logo.src}
             alt={logo.name}
-            loading="lazy"
-            decoding="async"
             style={{ '--logo-scale': logo.scale ?? 1 } as CSSProperties}
           />
         </div>

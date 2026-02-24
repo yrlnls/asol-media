@@ -1,5 +1,6 @@
 import type { MouseEvent } from 'react'
 import type { Service } from '../../data/services'
+import ImageWithFallback from '../ImageWithFallback'
 
 type ServiceCardProps = {
   service: Service
@@ -11,13 +12,7 @@ export default function ServiceCard({ service, isActive, onOpen }: ServiceCardPr
   return (
     <article className="service-card">
       <div className="service-card-media">
-        <img
-          src={service.image.src}
-          alt={service.image.alt}
-          loading="lazy"
-          decoding="async"
-          fetchPriority="low"
-        />
+        <ImageWithFallback src={service.image.src} alt={service.image.alt} />
       </div>
       <h3>{service.title}</h3>
       {/* <p className="service-card-summary">{service.summary}</p> */}
