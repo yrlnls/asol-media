@@ -1,5 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import ImageWithFallback from './ImageWithFallback'
 
 export default function Layout() {
   const [menuOpenedOnPath, setMenuOpenedOnPath] = useState<string | null>(null)
@@ -198,10 +199,13 @@ export default function Layout() {
               </svg>
             </a>
             <a href="https://asolmediaproduction.passgallery.com/client" aria-label="Pass Gallery" className="social-link social-passgallery" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 18V6h5a3 3 0 0 1 0 6H6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M18 9.5a4.5 4.5 0 1 0 0 5H15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <ImageWithFallback
+                src="/passgallery_logo.webp"
+                alt="Pass Gallery"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+              />
             </a>
           </div>
         </div>
