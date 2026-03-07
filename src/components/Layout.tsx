@@ -241,7 +241,9 @@ export default function Layout() {
       <footer className="footer">
         <div className="container footer-minimal">
           <div className="footer-brand">
-            <Link to="/" className="logo">ASOL MEDIA</Link>
+            <Link to="/" className="logo">
+              ASOL <span className="text-accent">MEDIA</span>
+            </Link>
             <div className="footer-copy">© 2026 Asol Media. All rights reserved.</div>
           </div>
           <div className="footer-social">

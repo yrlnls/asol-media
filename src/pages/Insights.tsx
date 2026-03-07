@@ -33,8 +33,22 @@ export default function Insights() {
         <div className="page-hero-inner single">
           <div className="page-hero-content">
             <span className="eyebrow">ASOL INSIGHT ARTICLES</span>
-            <h1>Director’s Reflection</h1>
-            <p className="text-accent text-accent-italic">Seeing Stories Beyond the Frame</p>
+            <h1>
+              We write because
+              <br />
+              we think, and we think
+              <br />
+              so our <span className="text-accent text-accent-italic">work goes deeper</span>.
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section id="insights" className="section insights">
+        <div className="container">
+          <div className="section-header center">
+            <span className="eyebrow">Director’s Reflection</span>
+            <h2>Seeing Stories Beyond the Frame</h2>
             <p>
               At Asol Media, we believe visual storytelling is a quiet art. It is not about noise, but about meaning the
               kind that stays long after the camera stops recording. Every project is approached with patience and
@@ -44,11 +58,6 @@ export default function Insights() {
               and remember.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section id="insights" className="section insights">
-        <div className="container">
           <div className="insights-grid">
             {insights.map((insight) => (
               <article key={insight.title} className="insight-card">

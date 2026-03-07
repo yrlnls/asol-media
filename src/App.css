@@ -402,8 +402,17 @@ p {
   transition: color var(--transition-fast);
 }
 
+.logo .text-accent {
+  color: var(--color-accent-light);
+  transition: color var(--transition-fast);
+}
+
 .logo:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-light);
+}
+
+.logo:hover .text-accent {
+  color: var(--color-text-primary);
 }
 
 .nav {
@@ -1656,6 +1665,7 @@ body.menu-open {
    ============================ */
 .insights {
   background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+  padding: calc(var(--space-5xl) * 0.25) 0;
 }
 
 .insights-grid {
