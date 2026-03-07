@@ -1,26 +1,28 @@
-import { Link } from 'react-router-dom'
-
 const insights = [
   {
-    title: 'The Rise of Visual Communication in Government',
-    date: 'December 2024',
-    category: 'Strategy',
-    excerpt:
-      'Institutional audiences respond to clarity, pacing, and credibility signals. We break down the visual choices that earn public trust.',
+    title: 'Visual Storytelling',
+    body:
+      'Visual storytelling is the language people remember long after words are forgotten. Images and videos carry emotion, atmosphere, and meaning in ways that written communication sometimes cannot. In a world where attention moves quickly, a single well-crafted visual can communicate trust, identity, and purpose. At Asol Media, we believe every project should tell a story that connects with people, not just display technical quality.',
   },
   {
-    title: 'Drone Operations in Sensitive Environments',
-    date: 'November 2024',
-    category: 'Production',
-    excerpt:
-      'How to build safe, repeatable aerial workflows for high-stakes locations without compromising story or safety.',
+    title: 'Behind the Frame',
+    body:
+      'Every visual project has moments that happen before the camera is switched on. Behind every production are discussions, planning, patience, and creative decisions that shape the final result. What appears effortless on screen is often the outcome of careful preparation and teamwork. Behind the frame is where ideas become structure, and structure becomes story.',
   },
   {
-    title: 'One-Page Cinematic Experiences That Convert',
-    date: 'October 2024',
-    category: 'Experience',
-    excerpt:
-      'A landing journey can feel like a short film: long-scroll pacing, intentional typography, and image-led sections that feel bespoke.',
+    title: 'Culture & Heritage',
+    body:
+      'Culture lives through memory, celebration, and shared experience. Documenting traditions, ceremonies, and community moments helps preserve identity for future generations. Visual media plays an important role in protecting stories that connect people to their history and heritage. At Asol Media, we approach cultural documentation with respect, sensitivity, and artistic care.',
+  },
+  {
+    title: 'Visual Strategy for Organizations',
+    body:
+      'Organizations communicate impact through more than reports and statistics. Professional visual documentation helps institutions share achievements, build public trust, and explain complex work in a simple and accessible way. Strong visual strategy supports communication, advocacy, and organizational storytelling.',
+  },
+  {
+    title: 'Creative Perspective',
+    body:
+      'Creativity is not only about equipment or technique, it is about seeing stories differently. Visual production is a dialogue between the storyteller and the audience. It requires observation, patience, and intention. At Asol Media, we believe great media should feel natural, meaningful, and emotionally connected to real human experience.',
   },
 ]
 
@@ -28,47 +30,30 @@ export default function Insights() {
   return (
     <>
       <section className="page-hero">
-        <div className="page-hero-inner">
+        <div className="page-hero-inner single">
           <div className="page-hero-content">
-            <span className="eyebrow">Perspectives</span>
-            <h1>Insights on institutional storytelling and visual strategy.</h1>
-            <p>Short reads on narrative structure, production discipline, and what builds public trust.</p>
-            <div className="page-hero-actions">
-              <Link className="btn btn-primary" to="/contact">Discuss a Brief</Link>
-              <Link className="btn btn-secondary" to="/work">See Our Work</Link>
-            </div>
-          </div>
-          <div className="page-hero-media">
-            <div className="media-shell">
-              <div className="media-placeholder">Placeholder</div>
-            </div>
+            <span className="eyebrow">ASOL INSIGHT ARTICLES</span>
+            <h1>Director’s Reflection</h1>
+            <p className="text-accent text-accent-italic">Seeing Stories Beyond the Frame</p>
+            <p>
+              At Asol Media, we believe visual storytelling is a quiet art. It is not about noise, but about meaning the
+              kind that stays long after the camera stops recording. Every project is approached with patience and
+              respect for the moment being documented. Our work is guided by the belief that media should preserve
+              authenticity, emotion, and cultural memory while maintaining the highest level of professional quality. We
+              do not simply capture images; we capture experiences, stories, and connections that people can return to
+              and remember.
+            </p>
           </div>
         </div>
       </section>
 
       <section id="insights" className="section insights">
         <div className="container">
-          <div className="section-header center">
-            <span className="eyebrow">Insights</span>
-            <h2>Thought leadership from our team</h2>
-            <p>Designed to help communications leaders sharpen their visual strategy.</p>
-          </div>
-
           <div className="insights-grid">
-            {insights.map((insight, index) => (
-              <article key={index} className="insight-card">
-                <div className="insight-visual">
-                  <div className="media-shell small">
-                    <div className="media-placeholder">Placeholder</div>
-                  </div>
-                </div>
-                <div className="insight-meta">
-                  <span className="insight-category">{insight.category}</span>
-                  <span className="insight-date">{insight.date}</span>
-                </div>
+            {insights.map((insight) => (
+              <article key={insight.title} className="insight-card">
                 <h3>{insight.title}</h3>
-                <p>{insight.excerpt}</p>
-                <Link to="/contact" className="insight-link">Read more</Link>
+                <p>{insight.body}</p>
               </article>
             ))}
           </div>

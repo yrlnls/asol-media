@@ -29,6 +29,66 @@ export default function Layout() {
   }, [location.pathname, menuOpenedOnPath])
 
   useEffect(() => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return
+    }
+
+    const root = document.documentElement
+    let currentX = window.innerWidth / 2
+    let currentY = window.innerHeight / 2
+    let targetX = currentX
+    let targetY = currentY
+    let frame: number | null = null
+
+    const update = () => {
+      currentX += (targetX - currentX) * 0.18
+      currentY += (targetY - currentY) * 0.18
+      root.style.setProperty('--cursor-x', `${currentX}px`)
+      root.style.setProperty('--cursor-y', `${currentY}px`)
+      frame = window.requestAnimationFrame(update)
+    }
+
+    const handleMove = (event: MouseEvent) => {
+      targetX = event.clientX
+      targetY = event.clientY
+      root.style.setProperty('--cursor-visible', '1')
+
+      const target = event.target as HTMLElement | null
+      const isInteractive = Boolean(
+        target?.closest?.('a, button, .btn, [role="button"], input, select, textarea'),
+      )
+      document.body.classList.toggle('cursor-active', isInteractive)
+
+      if (frame === null) {
+        frame = window.requestAnimationFrame(update)
+      }
+    }
+
+    const handleOut = (event: MouseEvent) => {
+      if (!event.relatedTarget) {
+        root.style.setProperty('--cursor-visible', '0')
+        document.body.classList.remove('cursor-active')
+      }
+    }
+
+    root.style.setProperty('--cursor-x', `${currentX}px`)
+    root.style.setProperty('--cursor-y', `${currentY}px`)
+    root.style.setProperty('--cursor-visible', '0')
+
+    document.addEventListener('mousemove', handleMove, { passive: true })
+    document.addEventListener('mouseout', handleOut)
+
+    return () => {
+      if (frame !== null) {
+        window.cancelAnimationFrame(frame)
+      }
+      document.removeEventListener('mousemove', handleMove)
+      document.removeEventListener('mouseout', handleOut)
+      document.body.classList.remove('cursor-active')
+    }
+  }, [])
+
+  useEffect(() => {
     if (!menuOpen) {
       return
     }
@@ -108,7 +168,9 @@ export default function Layout() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="header">
         <div className="header-inner">
-          <Link to="/" className="logo">ASOL MEDIA</Link>
+          <Link to="/" className="logo">
+            ASOL <span className="text-accent">MEDIA</span>
+          </Link>
           <nav className="nav nav-desktop" aria-label="Primary">
             {navItems.map((item) => (
               <NavLink
@@ -210,6 +272,9 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      <div className="cursor-dot" aria-hidden="true" />
+      <div className="cursor-ring" aria-hidden="true" />
     </div>
   )
 }
