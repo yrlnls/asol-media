@@ -1805,12 +1805,30 @@ body.menu-open {
    Clients Section
    ============================ */
 .clients {
+  position: relative;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(4, 6, 4, 0.86) 0%, rgba(6, 8, 6, 0.88) 100%),
+    linear-gradient(180deg, rgba(4, 6, 4, 0.62) 0%, rgba(6, 8, 6, 0.68) 100%),
     url('/bg-logo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.clients::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(94, 100, 54, 0.22), transparent 55%),
+    radial-gradient(circle at 85% 80%, rgba(94, 100, 54, 0.18), transparent 60%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.clients .container {
+  position: relative;
+  z-index: 1;
 }
 
 .client-logos {
@@ -1822,8 +1840,8 @@ body.menu-open {
 
 .client-logo-item {
   padding: var(--space-2xl);
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
+  background: rgba(7, 9, 6, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
