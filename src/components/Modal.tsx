@@ -7,9 +7,17 @@ type ModalProps = {
   title?: string
   children: ReactNode
   actions?: ReactNode
+  className?: string
 }
 
-export default function Modal({ isOpen, onClose, title, children, actions }: ModalProps) {
+export default function Modal({
+  isOpen,
+  onClose,
+  title,
+  children,
+  actions,
+  className,
+}: ModalProps) {
   const titleId = useId()
 
   useEffect(() => {
@@ -35,7 +43,7 @@ export default function Modal({ isOpen, onClose, title, children, actions }: Mod
   return createPortal(
     <div className="modal-backdrop" onClick={onClose} role="presentation">
       <div
-        className="modal"
+        className={['modal', className].filter(Boolean).join(' ')}
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? titleId : undefined}

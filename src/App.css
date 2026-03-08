@@ -2428,6 +2428,53 @@ body.menu-open {
   color: var(--color-text-secondary);
 }
 
+.modal-portfolio {
+  width: min(680px, 92vw);
+}
+
+.modal-portfolio .modal-content {
+  padding: var(--space-4xl);
+  text-align: center;
+}
+
+.modal-portfolio .modal-header {
+  justify-content: flex-end;
+  margin-bottom: var(--space-lg);
+}
+
+.portfolio-request {
+  display: grid;
+  gap: var(--space-lg);
+  justify-items: center;
+}
+
+.portfolio-request-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text-primary);
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-request-title em {
+  font-style: italic;
+  color: var(--color-accent-light);
+}
+
+.portfolio-request-body {
+  max-width: 520px;
+  color: var(--color-text-secondary);
+}
+
+.portfolio-request-actions {
+  margin-top: var(--space-md);
+}
+
+.portfolio-cta {
+  min-width: 240px;
+}
+
 /* ============================
    Reveal Animation
    ============================ */

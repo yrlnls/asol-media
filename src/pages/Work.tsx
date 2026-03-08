@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react'
+import { Link } from 'react-router-dom'
 import Modal from '../components/Modal'
-import ServiceModalActions from '../components/services/ServiceModalActions'
-import ServiceModalContent from '../components/services/ServiceModalContent'
 import ServicesGrid from '../components/services/ServicesGrid'
 import { workCategories } from '../data/workCategories'
 
@@ -49,10 +48,27 @@ export default function Work() {
       <Modal
         isOpen={Boolean(activeCategory)}
         onClose={closeCategory}
-        title={activeCategory?.title}
-        actions={activeCategory && <ServiceModalActions service={activeCategory} />}
+        title={undefined}
+        actions={undefined}
+        className={activeCategory ? 'modal-portfolio' : undefined}
       >
-        {activeCategory && <ServiceModalContent service={activeCategory} />}
+        {activeCategory &&
+          ((
+            <div className="portfolio-request">
+              <h3 className="portfolio-request-title">
+                Portfolio available on request for <em>qualified engagements</em>.
+              </h3>
+              <p className="portfolio-request-body">
+                We share our work selectively, in conversations where context can accompany the
+                content. This protects our clients and ensures the work is understood as intended.
+              </p>
+              <div className="portfolio-request-actions">
+                <Link className="btn btn-primary portfolio-cta" to="/contact">
+                  Request Portfolio Access
+                </Link>
+              </div>
+            </div>
+          ))}
       </Modal>
     </>
   )
