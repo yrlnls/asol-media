@@ -2732,6 +2732,16 @@ body.menu-open {
     padding: var(--space-4xl) 0;
   }
 
+  .modal-backdrop {
+    padding: var(--space-lg);
+  }
+
+  .modal,
+  .modal-portfolio {
+    width: min(640px, 100%);
+    margin: 0 auto;
+  }
+
   .hero-actions,
   .page-hero-actions,
   .cta-actions,
