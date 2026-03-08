@@ -50,7 +50,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-meta-row">
                   <span className="contact-meta-label">Response</span>
-                  <span className="contact-meta-value">Within 2 business days</span>
+                  <span className="contact-meta-value">Within 24 hours</span>
                 </div>
               </div>
             </div>

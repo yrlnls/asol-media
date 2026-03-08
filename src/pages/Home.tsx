@@ -39,43 +39,58 @@ export default function Home() {
   }, [heroImages.length])
 
   return (
-    <section id="home" className="hero">
-      <div className="hero-carousel" aria-hidden="true">
-        {heroImages.map((image, index) => (
-          <div
-            key={image.src}
-            className={`hero-carousel-slide${index === activeIndex ? ' is-active' : ''}`}
-            style={{
-              backgroundImage: `url(${image.src})`,
-              backgroundPosition: image.position ?? 'center',
-              zIndex: index === activeIndex ? 2 : 1,
-            }}
-          />
-        ))}
-        <div className="hero-carousel-overlay" />
-      </div>
-      <div className="hero-inner">
-        <div className="hero-content">
-          <span className="eyebrow">Strategic Visual Communications</span>
-          <h1>
-            Some stories
-            <br />
-            are too <span className="text-accent text-accent-italic">sacred</span>
-            <br />
-            for ordinary
-            <br />
-            frames.
-          </h1>
-          <p>
-            Asol Media is a luxury visual storytelling studio — where cinematic craft meets the depth of human memory. We don't capture moments. We preserve legacies.
-          </p>
-          <div className="hero-actions">
-            <Link to="/work" className="btn btn-primary">View Our Work</Link>
-            <Link to="/contact" className="btn btn-secondary">Start a Conversation</Link>
+    <>
+      <section id="home" className="hero">
+        <div className="hero-carousel" aria-hidden="true">
+          {heroImages.map((image, index) => (
+            <div
+              key={image.src}
+              className={`hero-carousel-slide${index === activeIndex ? ' is-active' : ''}`}
+              style={{
+                backgroundImage: `url(${image.src})`,
+                backgroundPosition: image.position ?? 'center',
+                zIndex: index === activeIndex ? 2 : 1,
+              }}
+            />
+          ))}
+          <div className="hero-carousel-overlay" />
+        </div>
+        <div className="hero-inner">
+          <div className="hero-content">
+            <span className="eyebrow">Strategic Visual Communications</span>
+            <h1>
+              Some stories
+              <br />
+              are too <span className="text-accent text-accent-italic">sacred</span>
+              <br />
+              for ordinary
+              <br />
+              frames.
+            </h1>
+            <p>
+              Asol Media is a luxury visual storytelling studio — where cinematic craft meets the depth of human memory. We don't capture moments. We preserve legacies.
+            </p>
+            <div className="hero-actions">
+              <Link to="/work" className="btn btn-primary">View Our Work</Link>
+              <Link to="/contact" className="btn btn-secondary">Start a Conversation</Link>
+            </div>
           </div>
         </div>
-      
-      </div>
-    </section>
+      </section>
+
+      <section id="legacy" className="section legacy">
+        <div className="container">
+          <div className="panel legacy-card">
+            <span className="legacy-eyebrow">
+              Named in legacy · rooted in Rarieda · carried forward
+            </span>
+            <h2 className="legacy-title">Asol</h2>
+            <p className="legacy-copy">
+              The name Asol is not a brand construct. It is an inheritance. It holds the memory of Mama Esther Asol Were — her dignity, her storytelling, her unrecorded grace. In naming this studio after her, we made a promise: that the stories of ordinary extraordinary people will be told with the same craft we bring to presidents and programmes. Legacy does not belong only to the powerful.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
