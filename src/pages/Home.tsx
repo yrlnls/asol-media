@@ -19,6 +19,11 @@ export default function Home() {
     { src: '/lp17.jpeg' },
     { src: '/lp18.jpeg' },
     { src: '/lp19.jpeg' },
+    { src: '/lp20.jpeg' },
+    { src: '/lp21.jpeg' },
+    { src: '/lp22.jpeg' },
+    { src: '/lp23.jpeg' },
+    { src: '/lp24.jpeg' },
   ]
 
   useEffect(() => {
