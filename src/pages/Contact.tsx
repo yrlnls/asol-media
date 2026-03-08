@@ -27,6 +27,14 @@ export default function Contact() {
                 We are based in Nairobi, Kenya, and serve clients across East Africa, the continent, and
                 internationally for the right projects.
               </p>
+              <div className="contact-callout">
+                <span className="contact-callout-label">Coming soon</span>
+                <h2>Asol Drone School</h2>
+                <p>
+                  Interested in training? Tick the Drone School box in the form and mention your goals. We
+                  will keep you updated as the school launches.
+                </p>
+              </div>
               <div className="contact-meta-list">
                 <div className="contact-meta-row">
                   <span className="contact-meta-label">Studio</span>
@@ -86,6 +94,16 @@ export default function Contact() {
                       </option>
                     ))}
                   </select>
+                </div>
+                <div className="contact-field">
+                  <label className="contact-checkbox" htmlFor="contact-drone-interest">
+                    <input
+                      id="contact-drone-interest"
+                      className="contact-checkbox-input"
+                      type="checkbox"
+                    />
+                    <span>I&#39;m interested in Asol Drone School (coming soon).</span>
+                  </label>
                 </div>
                 <div className="contact-field">
                   <label htmlFor="contact-brief">Tell us about your project</label>

@@ -78,6 +78,48 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="drone-school" className="section drone-school">
+        <div className="container">
+          <div className="drone-school-card">
+            <div className="drone-school-content">
+              <span className="eyebrow">Coming soon</span>
+              <h2>Asol Drone School</h2>
+              <p>
+                We are building a training space for safe, cinematic, and story-first drone flight. The school
+                will open with beginner to advanced tracks, practical flying sessions, and production-ready
+                workflows for creators and teams.
+              </p>
+              <ul className="drone-school-list">
+                <li>Beginner and advanced flight tracks</li>
+                <li>Safety, regulations, and pre-flight planning</li>
+                <li>Camera movement, composition, and aerial storytelling</li>
+              </ul>
+              <div className="drone-school-actions">
+                <Link to="/contact" className="btn btn-primary">
+                  Join the waitlist
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  Ask about the school
+                </Link>
+              </div>
+            </div>
+            <div className="drone-school-panel">
+              <span className="drone-school-tag">Future campus</span>
+              <h3>Nairobi-based, open to East Africa</h3>
+              <p>
+                We are finalising curriculum, instructors, and equipment. Leave your details and we will keep
+                you updated on launch dates and intake.
+              </p>
+              <div className="drone-school-panel-meta">
+                <span>Small cohort sizes</span>
+                <span>Hands-on flight hours</span>
+                <span>Certification-ready guidance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="legacy" className="section legacy">
         <div className="container">
           <div className="panel legacy-card">
