@@ -15,14 +15,12 @@ export default function Home() {
     { src: '/lp13.jpeg' },
     { src: '/lp14.jpeg', position: 'center 25%' },
     { src: '/lp15.jpeg', position: 'center 25%' },
-    { src: '/lp16.jpeg' },
     { src: '/lp17.jpeg' },
     { src: '/lp18.jpeg' },
     { src: '/lp19.jpeg' },
     { src: '/lp20.jpeg' },
     { src: '/lp21.jpeg' },
     { src: '/lp22.jpeg' },
-    { src: '/lp23.jpeg' },
     { src: '/lp24.jpeg' },
   ]
 

@@ -38,6 +38,10 @@ const clientLogos: ClientLogo[] = [
     name: 'Immaculate & Adhoch 1',
     src: '/immaculate&adhoch1.jpeg',
   },
+  {
+    name: ' Danish Refugee Council',
+    src: '/drc.png',
+  }
 
 ]
 
