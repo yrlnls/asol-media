@@ -10,12 +10,15 @@ export default function Home() {
     { src: '/lp4.jpeg' },
     { src: '/lp5.jpeg' },
     { src: '/lp7.jpeg' },
-    { src: '/lp8.jpeg', position: 'center 25%' },
     { src: '/lp9.jpeg' },
     { src: '/lp10.jpeg', position: 'center 25%' },
-    { src: '/lp11.jpeg', position: 'center 25%' },
-    { src: '/lp12.jpeg', position: 'center 25%' },
     { src: '/lp13.jpeg' },
+    { src: '/lp14.jpeg', position: 'center 25%' },
+    { src: '/lp15.jpeg', position: 'center 25%' },
+    { src: '/lp16.jpeg' },
+    { src: '/lp17.jpeg' },
+    { src: '/lp18.jpeg' },
+    { src: '/lp19.jpeg' },
   ]
 
   useEffect(() => {
@@ -66,11 +69,7 @@ export default function Home() {
             <Link to="/contact" className="btn btn-secondary">Start a Conversation</Link>
           </div>
         </div>
-        {/* <div className="hero-visual">
-          <div className="hero-visual-frame">
-            <div className="hero-visual-placeholder">Placeholder</div>
-          </div>
-        </div> */}
+      
       </div>
     </section>
   )
