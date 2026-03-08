@@ -33,7 +33,15 @@ const clientLogos: ClientLogo[] = [
   {
     name: 'Flamingo',
     src: '/FLAMINGO%20GROUP.webp',
-  }
+  },
+  {
+    name: 'Immaculate & Adhoch 1',
+    src: '/immaculate&adhoch1.jpeg',
+  },
+  {
+    name: 'Immaculate & Adhoch 2',
+    src: '/immaculate&adhoch2.jpeg',
+  },
 ]
 
 export default function ClientLogoGrid() {

@@ -110,7 +110,7 @@ export const workCategories: Service[] = [
     id: 'farewell',
     title: 'Farewell',
     image: {
-      src: '/farewell3.webp',
+      src: '/farewell.jpeg',
       alt: 'Farewell event coverage',
     },
     intro:

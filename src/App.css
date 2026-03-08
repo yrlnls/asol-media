@@ -1805,7 +1805,12 @@ body.menu-open {
    Clients Section
    ============================ */
 .clients {
-  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-tertiary) 100%);
+  background:
+    linear-gradient(180deg, rgba(4, 6, 4, 0.86) 0%, rgba(6, 8, 6, 0.88) 100%),
+    url('/bg-logo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .client-logos {

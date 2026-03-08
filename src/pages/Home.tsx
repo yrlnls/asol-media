@@ -4,14 +4,18 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0)
   const heroImages = [
-    '/lp1.jpeg',
-    '/lp2.jpeg',
-    '/lp3.jpeg',
-    '/lp4.jpeg',
-    '/lp5.jpeg',
-    '/lp6.jpeg',
-    '/lp7.jpeg',
-    '/lp8.jpeg',
+    { src: '/lp1.jpeg' },
+    { src: '/lp2.jpeg' },
+    { src: '/lp3.jpeg' },
+    { src: '/lp4.jpeg' },
+    { src: '/lp5.jpeg' },
+    { src: '/lp7.jpeg' },
+    { src: '/lp8.jpeg', position: 'center 25%' },
+    { src: '/lp9.jpeg' },
+    { src: '/lp10.jpeg', position: 'center 25%' },
+    { src: '/lp11.jpeg', position: 'center 25%' },
+    { src: '/lp12.jpeg', position: 'center 25%' },
+    { src: '/lp13.jpeg' },
   ]
 
   useEffect(() => {
@@ -29,12 +33,13 @@ export default function Home() {
   return (
     <section id="home" className="hero">
       <div className="hero-carousel" aria-hidden="true">
-        {heroImages.map((src, index) => (
+        {heroImages.map((image, index) => (
           <div
-            key={src}
+            key={image.src}
             className={`hero-carousel-slide${index === activeIndex ? ' is-active' : ''}`}
             style={{
-              backgroundImage: `url(${src})`,
+              backgroundImage: `url(${image.src})`,
+              backgroundPosition: image.position ?? 'center',
               zIndex: index === activeIndex ? 2 : 1,
             }}
           />
