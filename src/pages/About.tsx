@@ -91,14 +91,11 @@ export default function About() {
           </div>
           <div className="panel">
             <ul className="about-list">
-              <li><strong>Precision</strong> - We pay attention to detail in every project we handle.</li>
-              <li><strong>Integrity</strong> - We deliver work that reflects honesty, professionalism, and trust.</li>
-              <li><strong>Excellence</strong> - We strive to produce media of high quality and lasting impact.</li>
-              <li><strong>Discretion</strong> - We respect privacy and handle sensitive projects professionally.</li>
-              <li>
-                <strong>Cultural Awareness</strong> - We create content that respects and reflects the diversity of the
-                communities we serve.
-              </li>
+              <li><strong>Precision</strong></li>
+              <li><strong>Integrity</strong></li>
+              <li><strong>Excellence</strong></li>
+              <li><strong>Discretion</strong></li>
+              <li><strong>Cultural Awareness</strong></li>
             </ul>
           </div>
         </div>
