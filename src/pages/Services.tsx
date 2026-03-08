@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react'
+import { Link } from 'react-router-dom'
 import Modal from '../components/Modal'
 import ServiceModalActions from '../components/services/ServiceModalActions'
 import ServiceModalContent from '../components/services/ServiceModalContent'
-import ServicesGrid from '../components/services/ServicesGrid'
 import { services } from '../data/services'
 
 export default function Services() {
@@ -26,19 +26,87 @@ export default function Services() {
 
   const closeService = () => setActiveServiceId(null)
 
+  const disciplines = [
+    {
+      id: 'film-production',
+      number: '01',
+      title: 'Cinematic Film Production',
+      description:
+        'Feature-quality films for organizations, campaigns, and cultural documentation. From concept through colour grade — built for screens that command attention.',
+      image: services.find((service) => service.id === 'film-production')?.image.src ?? '',
+    },
+    {
+      id: 'photography',
+      number: '02',
+      title: 'Luxury Photography',
+      description:
+        'Editorial and documentary photography with the stillness of a master and the eye of a poet. Corporate identity, events, portraiture, and heritage documentation.',
+      image: services.find((service) => service.id === 'photography')?.image.src ?? '',
+    },
+    {
+      id: 'livestreaming',
+      number: '03',
+      title: 'Professional Livestream',
+      description:
+        'Multi-camera broadcast production for conferences, summits, galas, and global audiences — with the technical precision of television and the soul of live performance.',
+      image: services.find((service) => service.id === 'livestreaming')?.image.src ?? '',
+    },
+    {
+      id: 'event-packages',
+      number: '04',
+      title: 'Executive & Memorial Coverage',
+      description:
+        'Quiet authority in high-stakes moments. State ceremonies, leadership transitions, memorial tributes — handled with the gravity they deserve.',
+      image: services.find((service) => service.id === 'event-packages')?.image.src ?? '',
+    },
+    {
+      id: 'corporate-media',
+      number: '05',
+      title: 'Organizational Storytelling',
+      description:
+        'Impact films and documentary narratives for NGOs, governments, and international bodies — translating complex missions into stories the world can feel.',
+      image: services.find((service) => service.id === 'corporate-media')?.image.src ?? '',
+    },
+  ]
+
   return (
     <>
-
       <section id="services" className="section services">
         <div className="container">
-          <div className="section-header center">
+          <div className="section-header services-intro">
+            <span className="eyebrow">What we do</span>
+            <h2>
+              Five disciplines.
+              <br />
+              One obsession.
+            </h2>
           </div>
 
-          <ServicesGrid
-            services={services}
-            activeServiceId={activeServiceId}
-            onOpen={openService}
-          />
+          <div className="disciplines-grid">
+            {disciplines.map((discipline) => (
+              <button
+                key={discipline.id}
+                type="button"
+                className="discipline-card"
+                onClick={(event) => openService(discipline.id, event)}
+                style={
+                  discipline.image
+                    ? { backgroundImage: `url(${discipline.image})` }
+                    : undefined
+                }
+              >
+                <span className="discipline-number">{discipline.number}</span>
+                <h3>{discipline.title}</h3>
+                <p>{discipline.description}</p>
+              </button>
+            ))}
+            <Link to="/services" className="discipline-card discipline-card-cta">
+              <p className="discipline-quote">
+                “Every frame we make carries the weight of what it means to be remembered.”
+              </p>
+              <span className="discipline-link">View all services →</span>
+            </Link>
+          </div>
         </div>
       </section>
 
