@@ -1,7 +1,6 @@
 import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import './App.css'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -28,4 +27,3 @@ function App() {
 }
 
 export default App
-

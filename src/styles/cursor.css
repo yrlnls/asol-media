@@ -1,0 +1,70 @@
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  .btn,
+  [role='button'],
+  input,
+  select,
+  textarea {
+    cursor: none;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: var(--cursor-visible);
+  transition: opacity var(--transition-fast);
+  z-index: 9999;
+}
+
+.cursor-dot {
+  --dot-size: 6px;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  box-shadow: 0 0 8px rgba(var(--color-accent-rgb), 0.45);
+  left: calc(var(--cursor-x) - (var(--dot-size) / 2));
+  top: calc(var(--cursor-y) - (var(--dot-size) / 2));
+  transform: scale(var(--cursor-dot-scale));
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.cursor-ring {
+  --ring-size: 28px;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+  border: 1px solid rgba(var(--color-accent-rgb), 0.65);
+  box-shadow: 0 0 12px rgba(var(--color-accent-rgb), 0.25);
+  left: calc(var(--cursor-x) - (var(--ring-size) / 2));
+  top: calc(var(--cursor-y) - (var(--ring-size) / 2));
+  transform: scale(var(--cursor-scale));
+  transition: transform var(--transition-fast), opacity var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+body.cursor-active {
+  --cursor-scale: 1.45;
+  --cursor-dot-scale: 1.1;
+}
+
+body.cursor-active .cursor-ring {
+  border-color: rgba(var(--color-accent-rgb), 0.9);
+  box-shadow: 0 0 16px rgba(var(--color-accent-rgb), 0.45);
+  background: rgba(var(--color-accent-rgb), 0.08);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

@@ -1,0 +1,95 @@
+/* ============================
+   Drone School Teaser
+   ============================ */
+.drone-school {
+  padding: var(--space-5xl) 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(var(--color-accent-rgb), 0.18), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.08), transparent 60%),
+    var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.drone-school-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.drone-school-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 2.2vw + 1.2rem, 3.2rem);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.drone-school-content p {
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin-bottom: var(--space-lg);
+  line-height: 1.8;
+}
+
+.drone-school-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.drone-school-list li {
+  padding-left: 1.4rem;
+  position: relative;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.drone-school-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.drone-school-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.drone-school-panel {
+  border-radius: calc(var(--radius-xl) + 6px);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.35);
+  background: linear-gradient(160deg, rgba(9, 11, 8, 0.9), rgba(13, 16, 10, 0.96));
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-md), var(--shadow-accent);
+}
+
+.drone-school-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.drone-school-panel h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-md);
+}
+
+.drone-school-panel p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.drone-school-panel-meta {
+  display: grid;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}

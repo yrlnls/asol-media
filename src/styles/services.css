@@ -1,0 +1,284 @@
+/* ============================
+   Services Section
+   ============================ */
+.services {
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-tertiary) 100%);
+  padding-top: var(--space-4xl);
+}
+
+.services .section-header h2 {
+  font-size: clamp(2.4rem, 3vw + 1.4rem, 3.4rem);
+  letter-spacing: -0.02em;
+}
+
+.services .section-header .eyebrow {
+  font-size: clamp(0.9rem, 0.6vw + 0.6rem, 1.15rem);
+  letter-spacing: 0.16em;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-xl);
+}
+
+.services-intro {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: var(--space-4xl);
+}
+
+.services-intro .eyebrow {
+  margin-bottom: var(--space-lg);
+}
+
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--color-border);
+  background: rgba(6, 7, 5, 0.75);
+}
+
+.discipline-card {
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.discipline-card:nth-child(3n) {
+  border-right: none;
+}
+
+.discipline-card:nth-last-child(-n + 3) {
+  border-bottom: none;
+}
+
+.discipline-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-2xl) var(--space-xl);
+  min-height: 240px;
+  background-color: rgba(9, 10, 7, 0.85);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: var(--color-text-primary);
+  text-align: left;
+  font: inherit;
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.discipline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(5, 6, 5, 0.92) 0%, rgba(5, 6, 5, 0.6) 55%, rgba(5, 6, 5, 0.95) 100%);
+  opacity: 0.9;
+  transition: opacity var(--transition-base), background var(--transition-base);
+  z-index: 0;
+}
+
+.discipline-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.discipline-card-cta {
+  background-image: none;
+}
+
+.discipline-card-cta::before {
+  opacity: 0.95;
+}
+
+.discipline-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.2vw + 1rem, 1.9rem);
+  font-weight: 500;
+}
+
+.discipline-card p {
+  color: var(--color-text-muted);
+}
+
+.discipline-number {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.discipline-card-cta {
+  justify-content: space-between;
+}
+
+.discipline-quote {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+}
+
+.discipline-link {
+  margin-top: auto;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.discipline-card:hover,
+.discipline-card:focus-visible {
+  background: rgba(var(--color-accent-rgb), 0.28);
+  border-color: rgba(var(--color-accent-rgb), 0.6);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+}
+
+.discipline-card:hover::before,
+.discipline-card:focus-visible::before {
+  opacity: 0.55;
+  background:
+    linear-gradient(135deg, rgba(10, 12, 7, 0.45) 0%, rgba(10, 12, 7, 0.25) 55%, rgba(10, 12, 7, 0.55) 100%);
+}
+
+.discipline-card:hover p,
+.discipline-card:focus-visible p,
+.discipline-card:hover .discipline-number,
+.discipline-card:focus-visible .discipline-number {
+  color: var(--color-text-primary);
+}
+
+.service-card {
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, rgba(94, 100, 54, 0.15) 0%, rgba(94, 100, 54, 0.08) 100%), var(--glass-sheen), var(--glass-glow), var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-height: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: 400px 420px;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+}
+
+.service-card-media {
+  border-radius: calc(var(--radius-xl) - 6px);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  aspect-ratio: 16 / 9;
+  background: var(--color-bg-card-strong);
+  width: calc(100% + 2 * var(--space-xl));
+  margin: calc(var(--space-xl) * -1) calc(var(--space-xl) * -1) 0 calc(var(--space-xl) * -1);
+}
+
+.service-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.service-card:hover .service-card-media img {
+  transform: scale(1.03);
+}
+
+.service-card:hover {
+  border-color: rgba(var(--color-accent-rgb), 0.5);
+  background: var(--glass-sheen), var(--glass-glow), var(--glass-bg-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.service-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+}
+
+.service-card-summary {
+  color: var(--color-text-secondary);
+}
+
+.service-card-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.service-card-highlights li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.service-card-highlights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.service-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.service-card-cta {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.35);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
+}
+
+.service-card-cta:hover {
+  color: var(--color-text-primary);
+  border-color: rgba(var(--color-accent-rgb), 0.7);
+  background: rgba(94, 100, 54, 0.12);
+}
+
+.service-modal-content {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.service-modal-lede {
+  margin-bottom: 0;
+  color: var(--color-text-secondary);
+}
+
+.service-modal-grid {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.service-modal-section h4 {
+  margin-bottom: var(--space-sm);
+}
+
+.service-modal-section p {
+  color: var(--color-text-secondary);
+}

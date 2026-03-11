@@ -5,7 +5,7 @@ export const workCategories: Service[] = [
     id: 'government-media',
     title: 'Government Media',
     image: {
-      src: '/GOVT.webp',
+      src: '/govt-media.jpeg',
       alt: 'Government media coverage team',
     },
     intro:
@@ -26,7 +26,7 @@ export const workCategories: Service[] = [
     id: 'international-ngo',
     title: 'International and NGO',
     image: {
-      src: '/NGO.webp',
+      src: '/int-ngo.jpeg',
       alt: 'NGO field documentation',
     },
     intro:

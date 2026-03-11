@@ -1,0 +1,27 @@
+/* ============================
+   CTA Section
+   ============================ */
+.cta {
+  background: 
+    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.cta h2 {
+  max-width: 700px;
+  margin: 0 auto var(--space-lg);
+}
+
+.cta p {
+  max-width: 500px;
+  margin: 0 auto var(--space-2xl);
+  font-size: 1.1rem;
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
