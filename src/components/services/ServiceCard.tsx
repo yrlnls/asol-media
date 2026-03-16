@@ -4,11 +4,10 @@ import ImageWithFallback from '../ImageWithFallback'
 
 type ServiceCardProps = {
   service: Service
-  isActive: boolean
   onOpen: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
-export default function ServiceCard({ service, isActive, onOpen }: ServiceCardProps) {
+export default function ServiceCard({ service, onOpen }: ServiceCardProps) {
   return (
     <article className="service-card">
       <div className="service-card-media">
@@ -27,9 +26,9 @@ export default function ServiceCard({ service, isActive, onOpen }: ServiceCardPr
           className="service-card-cta"
           onClick={onOpen}
           aria-haspopup="dialog"
-          aria-expanded={isActive}
+          aria-expanded={false}
         >
-          View Details
+          View Gallery
         </button>
       </div>
     </article>

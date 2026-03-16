@@ -1,0 +1,105 @@
+export type WorkGalleryImages = {
+  [categoryId: string]: {
+    images: { src: string; alt: string }[]
+  }
+}
+
+export const workGalleryImages: WorkGalleryImages = {
+  'government-media': {
+    images: [
+      { src: '/GOVT.webp', alt: 'Government event coverage' },
+      { src: '/KDF1.webp', alt: 'KDF ceremony with officials' },
+      { src: '/KDF2.webp', alt: 'Military parade moment' },
+      { src: '/KDF3.webp', alt: 'Formal speech with security detail' },
+      { src: '/KDF4.webp', alt: 'Official walk-through with officers' },
+      { src: '/KDF5.webp', alt: 'Presentation during government event' },
+      { src: '/KDF6.webp', alt: 'Honors and medal ceremony' },
+      { src: '/CHIEFS&ASS.CHIEF3.webp', alt: 'Local chiefs addressing community' },
+      { src: '/CHIEFS&ASS.CHIEF5.webp', alt: 'Community leadership meeting' },
+      { src: '/CHIEFS&ASS.CHIEF9.webp', alt: 'Dignitaries at civic function' },
+      { src: '/KDF9.webp', alt: 'Procession during official event' },
+      { src: '/CHIEFS&ASS.CHIEF14.webp', alt: 'Regional administrators group photo' },
+    ],
+  },
+  'international-ngo': {
+    images: [
+      { src: '/FLAMINGO_FARM1.webp', alt: 'Field documentation with partners' },
+      { src: '/FLAMINGO_FARM2.webp', alt: 'Agriculture program overview' },
+      { src: '/FLAMINGO_FARM3.webp', alt: 'Team briefing on site' },
+      { src: '/FLAMINGO_FARM4.webp', alt: 'Community engagement session' },
+      { src: '/FLAMINGO_FARM5.webp', alt: 'Water and sanitation project check' },
+      { src: '/FLAMINGO_FARM6.webp', alt: 'Environmental conservation activity' },
+      { src: '/FLAMINGO_FARM7.webp', alt: 'Farm tour with stakeholders' },
+      { src: '/FLAMINGO_FARM8.webp', alt: 'Donor visit documentation' },
+      { src: '/NDIC_GPA1.webp', alt: 'Training workshop in progress' },
+      { src: '/NDIC_GPA2.webp', alt: 'Participant discussion circle' },
+      { src: '/NDIC_GPA3.webp', alt: 'NGO program presentation' },
+      { src: '/NDIC_GPA4.webp', alt: 'Group photo after field exercise' },
+    ],
+  },
+  'corporate-events': {
+    images: [
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)1.webp', alt: 'Corporate product launch stage' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)2.webp', alt: 'Brand signage at launch event' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)3.webp', alt: 'Audience during keynote' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)4.webp', alt: 'Executive remarks on stage' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)5.webp', alt: 'Panel discussion segment' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)6.webp', alt: 'Networking on expo floor' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)7.webp', alt: 'Media crew filming attendees' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)8.webp', alt: 'Event branding wall with guests' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)9.webp', alt: 'Speaker close-up during talk' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)10.webp', alt: 'Crowd reaction moments' },
+      { src: '/LOGO_WEBSITE_LAUNCH(pbora)11.webp', alt: 'Product showcase booth' },
+      { src: '/PBORA_PPC1.webp', alt: 'Corporate pavilion and signage' },
+      { src: '/PBORA_PPC2.webp', alt: 'Executive interview setup' },
+    ],
+  },
+  weddings: {
+    images: [
+      { src: '/lp1.jpeg', alt: 'Couple portrait outdoors' },
+      { src: '/lp2.jpeg', alt: 'Bridal party candid' },
+      { src: '/lp3.jpeg', alt: 'First look moment' },
+      { src: '/lp4.jpeg', alt: 'Ceremony vows exchange' },
+      { src: '/lp5.jpeg', alt: 'Family portrait session' },
+      { src: '/lp6.jpeg', alt: 'Reception entrance' },
+      { src: '/lp7.jpeg', alt: 'Dance floor energy' },
+      { src: '/lp8.jpeg', alt: 'Couple sunset session' },
+      { src: '/lp9.jpeg', alt: 'Bridal details close-up' },
+      { src: '/lp10.jpeg', alt: 'Reception toasts' },
+      { src: '/lp11.jpeg', alt: 'Cake cutting moment' },
+      { src: '/lp12.jpeg', alt: 'Sparkler send-off' },
+    ],
+  },
+  concerts: {
+    images: [
+      { src: '/KOLA1.webp', alt: 'Concert crowd under stage lights' },
+      { src: '/KOLA2.webp', alt: 'Performer mid-song' },
+      { src: '/KOLA3.webp', alt: 'DJ booth atmosphere' },
+      { src: '/KOLA4.webp', alt: 'Hands up in the audience' },
+      { src: '/KOLA5.webp', alt: 'Stage-wide performance shot' },
+      { src: '/KOLA6.webp', alt: 'Artist interacting with fans' },
+      { src: '/KOLA7.webp', alt: 'Colorful light show' },
+      { src: '/KOLA8.webp', alt: 'Close-up of vocalist' },
+      { src: '/DG_PBORA_SPICE1.webp', alt: 'Festival daytime performance' },
+      { src: '/DG_PBORA_SPICE2.webp', alt: 'Backstage candid with artists' },
+      { src: '/DG_PBORA_SPICE3.webp', alt: 'Evening stage ambience' },
+      { src: '/DG_PBORA_SPICE4.webp', alt: 'Crowd cheering at chorus' },
+    ],
+  },
+  farewell: {
+    images: [
+      { src: '/farewell.jpeg', alt: 'Farewell tribute moment' },
+      { src: '/farewell1.webp', alt: 'Family gathering during farewell' },
+      { src: '/farewell2.webp', alt: 'Memory table arrangement' },
+      { src: '/farewell3.webp', alt: 'Guests sharing tributes' },
+      { src: '/MBITA1.webp', alt: 'Community farewell gathering' },
+      { src: '/MBITA2.webp', alt: 'Procession during ceremony' },
+      { src: '/MBITA3.webp', alt: 'Quiet reflection moment' },
+      { src: '/MBITA4.webp', alt: 'Family and friends seated' },
+      { src: '/MBITA5.webp', alt: 'Outdoor remembrance event' },
+      { src: '/CHIEFS&ASS.CHIEF18.webp', alt: 'Leaders offering respects' },
+      { src: '/CHIEFS&ASS.CHIEF12.webp', alt: 'Community elders in attendance' },
+      { src: '/CHIEFS&ASS.CHIEF6.webp', alt: 'Tribute address from podium' },
+    ],
+  },
+}
