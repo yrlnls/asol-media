@@ -68,7 +68,7 @@ export const workCategories: Service[] = [
     id: 'weddings',
     title: 'Weddings',
     image: {
-      src: '/wedding.webp',
+      src: '/wedding.PNG',
       alt: 'Wedding photography and videography',
     },
     intro:

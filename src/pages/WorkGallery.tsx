@@ -47,7 +47,7 @@ export default function WorkGallery() {
                 target="_blank"
                 rel="noopener"
               >
-                View More on Pass Gallery
+                View More 
               </a>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function WorkGallery() {
 
           <div className="gallery-cta">
             <a className="btn btn-primary" href={PASS_GALLERY_URL} target="_blank" rel="noopener">
-              View More on Pass Gallery
+              View More 
             </a>
           </div>
         </div>
