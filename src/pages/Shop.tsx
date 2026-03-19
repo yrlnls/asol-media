@@ -161,7 +161,7 @@ export default function Shop() {
                     target="_blank"
                     rel="noopener"
                   >
-                    Inquire on WhatsApp
+                    Buy
                   </a>
                 </div>
               </article>
