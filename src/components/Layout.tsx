@@ -158,8 +158,8 @@ export default function Layout() {
     { to: '/about', label: 'About', className: 'nav-link' },
     { to: '/services', label: 'Services', className: 'nav-link' },
     { to: '/work', label: 'Work', className: 'nav-link' },
-    { to: '/shop', label: 'Shop', className: 'nav-link' },
     { to: '/clients', label: 'Clients', className: 'nav-link' },
+    { to: '/shop', label: 'Shop', className: 'nav-link' },
     { to: '/insights', label: 'Insights', className: 'nav-link' },
     { to: '/contact', label: 'Get in Touch', className: 'nav-cta' },
   ]
