@@ -13,10 +13,10 @@ const collectionDetails = [
 ]
 
 const collectionSizes = [
-  { label: 'Small', dimension: '30 × 45', note: 'cm' },
-  { label: 'Medium', dimension: '50 × 75', note: 'cm' },
-  { label: 'Large', dimension: '70 × 100', note: 'cm' },
-  { label: 'Collector', dimension: '100 × 150', note: 'cm · custom available' },
+  { label: 'Small', dimension: '30 × 45', note: 'cm', cols: 2 },
+  { label: 'Medium', dimension: '50 × 75', note: 'cm', cols: 3 },
+  { label: 'Large', dimension: '70 × 100', note: 'cm', cols: 4 },
+  { label: 'Collector', dimension: '100 × 150', note: 'cm · custom available', cols: 5 },
 ]
 
 const collectionLogistics = [
@@ -43,7 +43,6 @@ export default function Shop() {
       <section className="shop-hero">
         <div className="container shop-shell">
           <div className="shop-hero-copy">
-            <span className="shop-kicker">Shop</span>
             <h1>
               The Print
               <span> Collection</span>
@@ -79,7 +78,13 @@ export default function Shop() {
             <span className="shop-section-label">Available Sizes</span>
             <div className="shop-size-grid">
               {collectionSizes.map((size) => (
-                <article className="shop-size-card" key={size.label}>
+                <article
+                  className="shop-size-card"
+                  key={size.label}
+                  style={{
+                    gridColumn: `span ${size.cols}`,
+                  }}
+                >
                   <span className="shop-size-label">{size.label}</span>
                   <strong>{size.dimension}</strong>
                   <p>{size.note}</p>
@@ -92,7 +97,7 @@ export default function Shop() {
 
           <div className="shop-edition-grid">
             <div className="shop-edition-mark">
-              <span>Ltd</span>
+              <span>Limited</span>
               <strong>Edition</strong>
             </div>
             <div className="shop-edition-copy">
