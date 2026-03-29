@@ -22,17 +22,75 @@ const collectionSizes = [
 const collectionLogistics = [
   {
     title: 'Delivery',
+    icon: 'delivery',
     description: 'Kenya & international shipping. Every piece leaves carefully packed and handled like the object it is.',
   },
   {
     title: 'Production Time',
+    icon: 'production',
     description: '7-14 days from order to dispatch. Some things are worth allowing time for.',
   },
   {
     title: 'Where They Live',
+    icon: 'spaces',
     description: 'Homes. Offices. Galleries. Anywhere a wall deserves more than decoration.',
   },
 ]
+
+type LogisticsIconKey = (typeof collectionLogistics)[number]['icon']
+
+function LogisticsIcon({ type }: { type: LogisticsIconKey }) {
+  if (type === 'delivery') {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path
+          d="M12 19h26v24H12zM38 27h10l8 9v7H38zM20 45a4 4 0 1 0 0 .1zM46 45a4 4 0 1 0 0 .1z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.9"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    )
+  }
+
+  if (type === 'production') {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle
+          cx="32"
+          cy="32"
+          r="18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.9"
+        />
+        <path
+          d="M32 21v12l8 5M32 10v4M32 50v4M54 32h-4M14 32h-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.9"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <path
+        d="M14 50V28l18-14 18 14v22M24 50V36h16v14M20 28h24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
 
 const whatsappLink = (productName: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`${BASE_MESSAGE} ${productName}`)}`
@@ -123,6 +181,9 @@ export default function Shop() {
           <div className="shop-logistics-grid">
             {collectionLogistics.map((item) => (
               <article className="shop-logistics-card" key={item.title}>
+                <div className="shop-logistics-icon" aria-hidden="true">
+                  <LogisticsIcon type={item.icon} />
+                </div>
                 <span className="shop-section-label">{item.title}</span>
                 <p>{item.description}</p>
               </article>
