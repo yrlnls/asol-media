@@ -243,6 +243,61 @@
   margin: 0 auto;
 }
 
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.about-pillar,
+.about-value-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.12), transparent 52%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+
+.about-pillar strong,
+.about-value-card strong {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+}
+
+.about-pillar span {
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+.about-value-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.about-value-card {
+  justify-items: center;
+  text-align: center;
+  min-height: 150px;
+  align-content: center;
+}
+
+.about-value-card span {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(var(--color-accent-rgb), 0.5);
+}
+
 .about-page .center-panel h1 {
   text-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
 }

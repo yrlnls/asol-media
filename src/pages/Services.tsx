@@ -8,6 +8,11 @@ import { services } from '../data/services'
 export default function Services() {
   const [activeServiceId, setActiveServiceId] = useState<string | null>(null)
   const triggerRef = useRef<HTMLElement | null>(null)
+  const serviceSignals = [
+    { value: '5', label: 'featured disciplines' },
+    { value: 'Story', label: 'before spectacle' },
+    { value: 'End-to-end', label: 'capture to delivery' },
+  ]
 
   const activeService = services.find((service) => service.id === activeServiceId) ?? null
 
@@ -29,7 +34,6 @@ export default function Services() {
   const disciplines = [
     {
       id: 'film-production',
-      number: '01',
       title: 'Cinematic Film Production',
       description:
         'Feature-quality films for organizations, campaigns, and cultural documentation. From concept through colour grade — built for screens that command attention.',
@@ -37,7 +41,6 @@ export default function Services() {
     },
     {
       id: 'photography',
-      number: '02',
       title: 'Luxury Photography',
       description:
         'Editorial and documentary photography with the stillness of a master and the eye of a poet. Corporate identity, events, portraiture, and heritage documentation.',
@@ -45,7 +48,6 @@ export default function Services() {
     },
     {
       id: 'livestreaming',
-      number: '03',
       title: 'Professional Livestream',
       description:
         'Multi-camera broadcast production for conferences, summits, galas, and global audiences — with the technical precision of television and the soul of live performance.',
@@ -53,7 +55,6 @@ export default function Services() {
     },
     {
       id: 'event-packages',
-      number: '04',
       title: 'Executive & Memorial Coverage',
       description:
         'Quiet authority in high-stakes moments. State ceremonies, leadership transitions, memorial tributes — handled with the gravity they deserve.',
@@ -61,7 +62,6 @@ export default function Services() {
     },
     {
       id: 'corporate-media',
-      number: '05',
       title: 'Organizational Storytelling',
       description:
         'Impact films and documentary narratives for NGOs, governments, and international bodies — translating complex missions into stories the world can feel.',
@@ -80,6 +80,18 @@ export default function Services() {
               <br />
               One obsession.
             </h2>
+            <p>
+              High-touch production built to look cinematic, feel human, and land clearly.
+            </p>
+          </div>
+
+          <div className="services-signal-strip" aria-label="Services overview">
+            {serviceSignals.map((signal) => (
+              <article className="services-signal-card" key={signal.label}>
+                <strong>{signal.value}</strong>
+                <span>{signal.label}</span>
+              </article>
+            ))}
           </div>
 
           <div className="disciplines-grid">
@@ -95,7 +107,6 @@ export default function Services() {
                     : undefined
                 }
               >
-                <span className="discipline-number">{discipline.number}</span>
                 <h3>{discipline.title}</h3>
                 <p>{discipline.description}</p>
               </button>

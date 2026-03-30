@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const heroHighlights = ['Film', 'Photography', 'Livestream', 'Drone']
+  const heroStats = [
+    { value: '4', label: 'core disciplines' },
+    { value: '18+', label: 'featured moments on rotation' },
+    { value: '1', label: 'story-first studio' },
+  ]
+  const droneSchoolTracks = [
+    { label: 'Flight', detail: 'Practical flying sessions' },
+    { label: 'Safety', detail: 'Regulations and planning' },
+    { label: 'Story', detail: 'Camera movement and coverage' },
+  ]
   const heroImages = [
     { src: '/lp1.jpeg' },
     { src: '/lp2.jpeg' },
@@ -66,12 +77,25 @@ export default function Home() {
               frames.
             </h1>
             <p>
-              Asol Media is a luxury visual storytelling studio — where cinematic craft meets the depth of human memory. We don't capture moments. We preserve legacies.
+              Cinematic visuals for memory, heritage, and high-stakes moments.
             </p>
+            <div className="hero-highlights" aria-label="Core offerings">
+              {heroHighlights.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
             <div className="hero-actions">
               <Link to="/work" className="btn btn-primary">View Our Work</Link>
               <Link to="/contact" className="btn btn-secondary">Start a Conversation</Link>
             </div>
+          </div>
+          <div className="hero-stat-strip" aria-label="Studio snapshot">
+            {heroStats.map((item) => (
+              <article className="hero-stat-card" key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -83,9 +107,7 @@ export default function Home() {
               <span className="eyebrow">Coming soon</span>
               <h2>Asol Drone School</h2>
               <p>
-                We are building a training space for safe, cinematic, and story-first drone flight. The school
-                will open with beginner to advanced tracks, practical flying sessions, and production-ready
-                workflows for creators and teams.
+                A training space for safe, cinematic, story-first drone flight.
               </p>
               <ul className="drone-school-list">
                 <li>Beginner and advanced flight tracks</li>
@@ -105,9 +127,16 @@ export default function Home() {
               <span className="drone-school-tag">Future campus</span>
               <h3>Nairobi-based, open to East Africa</h3>
               <p>
-                We are finalising curriculum, instructors, and equipment. Leave your details and we will keep
-                you updated on launch dates and intake.
+                Curriculum, instructors, and equipment are being finalised now.
               </p>
+              <div className="drone-school-track-grid" aria-label="School focus areas">
+                {droneSchoolTracks.map((track) => (
+                  <article className="drone-school-track" key={track.label}>
+                    <strong>{track.label}</strong>
+                    <span>{track.detail}</span>
+                  </article>
+                ))}
+              </div>
               <div className="drone-school-panel-meta">
                 <span>Small cohort sizes</span>
                 <span>Hands-on flight hours</span>
@@ -126,7 +155,7 @@ export default function Home() {
             </span>
             <h2 className="legacy-title">Asol</h2>
             <p className="legacy-copy">
-              The name Asol is not a brand construct. It is an inheritance. It holds the memory of Mama Esther Asol Were — her dignity, her storytelling, her unrecorded grace. In naming this studio after her, we made a promise: that the stories of ordinary extraordinary people will be told with the same craft we bring to presidents and programmes. Legacy does not belong only to the powerful.
+              Not a brand invention, but an inheritance. Named for Mama Esther Asol Were, the studio exists to treat everyday lives with the same care, dignity, and cinematic craft often reserved for power.
             </p>
           </div>
         </div>

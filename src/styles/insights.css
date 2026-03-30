@@ -12,6 +12,39 @@
   gap: var(--space-xl);
 }
 
+.insights-reflection-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.insight-reflection-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.12), transparent 55%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+
+.insight-reflection-card strong {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+}
+
+.insight-reflection-card span {
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
 .insight-card {
   padding: var(--space-xl);
   background: var(--glass-sheen), var(--glass-glow), var(--glass-bg);
@@ -21,6 +54,34 @@
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(14px) saturate(120%);
   -webkit-backdrop-filter: blur(14px) saturate(120%);
+}
+
+.insight-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.insight-cue {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(var(--color-accent-rgb), 0.52);
+}
+
+.insight-read {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.72rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 .insight-visual {
@@ -60,7 +121,8 @@
 
 .insight-card p {
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
 }
 
 .insight-link {

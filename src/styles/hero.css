@@ -92,15 +92,74 @@
 
 .hero-content p {
   font-size: 1.15rem;
-  line-height: 1.8;
-  margin-bottom: var(--space-2xl);
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
   color: var(--color-text-secondary);
+  max-width: 34ch;
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: var(--space-2xl);
+}
+
+.hero-highlights span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .hero-actions {
   display: flex;
   gap: var(--space-md);
   align-items: center;
+}
+
+.hero-stat-strip {
+  align-self: end;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.hero-stat-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.14), transparent 55%),
+    rgba(8, 10, 8, 0.52);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+}
+
+.hero-stat-card strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+  color: var(--color-accent-light);
+}
+
+.hero-stat-card span {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.5;
 }
 
 .hero-visual {

@@ -32,6 +32,49 @@
   margin-bottom: var(--space-lg);
 }
 
+.services-intro p {
+  max-width: 34ch;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-top: var(--space-md);
+}
+
+.services-signal-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.services-signal-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.12), transparent 55%),
+    rgba(8, 10, 8, 0.48);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+
+.services-signal-card strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  line-height: 1;
+  color: var(--color-accent-light);
+}
+
+.services-signal-card span {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
 .disciplines-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -55,7 +98,7 @@
 .discipline-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 0.85rem;
   padding: var(--space-2xl) var(--space-xl);
   min-height: 240px;
   background-color: rgba(9, 10, 7, 0.85);
@@ -99,10 +142,13 @@
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 1.2vw + 1rem, 1.9rem);
   font-weight: 500;
+  max-width: 14ch;
 }
 
 .discipline-card p {
   color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 30ch;
 }
 
 .discipline-number {
@@ -110,6 +156,20 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+}
+
+.discipline-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.38rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 .discipline-card-cta {

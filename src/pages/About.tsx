@@ -1,4 +1,18 @@
 export default function About() {
+  const servicePillars = [
+    { title: 'Capture', detail: 'Photography, film, and aerial coverage' },
+    { title: 'Broadcast', detail: 'Livestreams and hybrid event production' },
+    { title: 'Finish', detail: 'Editing, grading, and delivery' },
+  ]
+
+  const values = [
+    { symbol: '', name: 'Precision' },
+    { symbol: '', name: 'Integrity' },
+    { symbol: '', name: 'Excellence' },
+    { symbol: '', name: 'Discretion' },
+    { symbol: '', name: 'Cultural Awareness' },
+  ]
+
   return (
     <div className="about-page">
       <section className="section about-compact">
@@ -7,19 +21,17 @@ export default function About() {
             <span className="eyebrow">ASOL MEDIA</span>
             <h1>Creating Visuals That Connect People</h1>
             <p>
-              At Asol Media, we believe media is more than cameras, lights, and editing software. We
-              believe media is about people, stories, and the moments that bring them together.
+              We make story-first visual work for businesses, families, and communities that want
+              to be seen with clarity, care, and beauty.
             </p>
-            <p>
-              Our work is inspired by the simple idea that visuals can help businesses grow, families
-              remember their special moments, and communities share their stories. We help businesses,
-              families, and communities create meaningful visual imagery that communicates, preserves
-              memories, and builds genuine connections.
-            </p>
-            <p>
-              Whether it is a corporate event, a personal celebration, or a community initiative, we
-              approach every project with care, professionalism, and attention to detail.
-            </p>
+            <div className="about-pillars" aria-label="Core studio pillars">
+              {servicePillars.map((pillar) => (
+                <article className="about-pillar" key={pillar.title}>
+                  <strong>{pillar.title}</strong>
+                  <span>{pillar.detail}</span>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -30,15 +42,13 @@ export default function About() {
             <span className="eyebrow">What We Do</span>
             <h2>Professional visuals with a story-first approach.</h2>
             <p>
-              We specialize in professional videography, photography, aerial media, film production,
-              livestreaming, content creation, and post-production services.
+              End-to-end visuals, from capture to final delivery.
             </p>
           </div>
           <div className="panel">
             <p>
-              Our goal is not just to capture events but to tell stories that feel real, natural, and
-              emotionally engaging. We work closely with our clients to understand the purpose behind
-              every project before we begin production.
+              We plan carefully, shoot intentionally, and finish with polish so the final work feels
+              honest, elevated, and easy to share.
             </p>
             <ul className="about-list">
               <li>Professional videography and photography</li>
@@ -60,23 +70,19 @@ export default function About() {
             <article className="strength-card">
               <h3>Our Philosophy</h3>
               <p>
-                We believe that the best media is not forced or overly complicated. It should feel
-                natural, honest, and meaningful. Every frame we capture is guided by creativity,
-                patience, and respect for the moment.
+                The best visuals do not feel forced. They feel honest, composed, and alive.
               </p>
             </article>
             <article className="strength-card">
               <h3>Our Mission</h3>
               <p>
-                To create high-quality visual media that helps businesses, families, and communities
-                communicate, connect, and preserve meaningful moments.
+                To help people communicate, connect, and preserve what matters.
               </p>
             </article>
             <article className="strength-card">
               <h3>Our Vision</h3>
               <p>
-                To be a trusted media partner known for professional storytelling, reliability, and
-                creative excellence.
+                To be the trusted visual partner for meaningful work and memory.
               </p>
             </article>
           </div>
@@ -90,13 +96,14 @@ export default function About() {
             <h2>The principles that guide every project.</h2>
           </div>
           <div className="panel">
-            <ul className="about-list">
-              <li><strong>Precision</strong></li>
-              <li><strong>Integrity</strong></li>
-              <li><strong>Excellence</strong></li>
-              <li><strong>Discretion</strong></li>
-              <li><strong>Cultural Awareness</strong></li>
-            </ul>
+            <div className="about-value-grid" aria-label="Studio values">
+              {values.map((value) => (
+                <article className="about-value-card" key={value.name}>
+                  <span>{value.symbol}</span>
+                  <strong>{value.name}</strong>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -107,19 +114,12 @@ export default function About() {
             <span className="eyebrow">Why Choose Asol Media</span>
             <h2>People trust us because we care about the story.</h2>
             <p>
-              At Asol Media, we believe media should feel natural, meaningful, and professional. We
-              listen first to understand your vision before starting any project.
+              We listen first, move with care, and deliver work that feels intentional.
             </p>
           </div>
           <div className="panel">
             <p>
-              Our team focuses on quality, reliability, and attention to detail, even in fast-moving
-              event environments. We combine creativity and technical skill to deliver work that you
-              are proud to share.
-            </p>
-            <p>
-              When you work with Asol Media, you are choosing more than a media service - you are
-              choosing a partner who values your story.
+              Quality, reliability, and story sense stay present from brief to delivery.
             </p>
           </div>
         </div>

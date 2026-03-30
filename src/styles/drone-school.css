@@ -26,9 +26,9 @@
 
 .drone-school-content p {
   color: var(--color-text-muted);
-  max-width: 60ch;
+  max-width: 42ch;
   margin-bottom: var(--space-lg);
-  line-height: 1.8;
+  line-height: 1.65;
 }
 
 .drone-school-list {
@@ -83,13 +83,52 @@
 
 .drone-school-panel p {
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: var(--space-lg);
 }
 
-.drone-school-panel-meta {
+.drone-school-track-grid {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.drone-school-track {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem;
+  border-radius: calc(var(--radius-lg) + 2px);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.drone-school-track strong {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+}
+
+.drone-school-track span {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.drone-school-panel-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
   font-size: 0.85rem;
   color: var(--color-text-secondary);
+}
+
+.drone-school-panel-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(var(--color-accent-rgb), 0.09);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.16);
 }
