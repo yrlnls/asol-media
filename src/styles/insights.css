@@ -1,6 +1,31 @@
 /* ============================
    Insights Section
    ============================ */
+.insights-hero {
+  align-items: center;
+}
+
+.insights-hero-media {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.insights-hero-shell {
+  width: min(100%, 520px);
+  min-height: 560px;
+  padding: 0;
+  background: linear-gradient(145deg, rgba(94, 100, 54, 0.18) 0%, rgba(7, 9, 7, 0.92) 100%);
+}
+
+.insights-hero-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .insights {
   background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
   padding: calc(var(--space-5xl) * 0.25) 0;

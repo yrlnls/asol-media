@@ -1,3 +1,5 @@
+import ImageWithFallback from '../components/ImageWithFallback'
+
 const insights = [
   {
     title: 'Visual Storytelling',
@@ -36,7 +38,7 @@ export default function Insights() {
   return (
     <>
       <section className="page-hero">
-        <div className="page-hero-inner single">
+        <div className="page-hero-inner insights-hero">
           <div className="page-hero-content">
             <span className="eyebrow">ASOL INSIGHT ARTICLES</span>
             <h1>
@@ -46,6 +48,17 @@ export default function Insights() {
               <br />
               so our <span className="text-accent text-accent-italic">work goes deeper</span>.
             </h1>
+          </div>
+          <div className="page-hero-media insights-hero-media">
+            <div className="media-shell insights-hero-shell">
+              <ImageWithFallback
+                src="/insights.jpg"
+                alt="Editorial workspace for Asol Media insights"
+                className="insights-hero-image"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
       </section>
