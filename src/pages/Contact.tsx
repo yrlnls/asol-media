@@ -2,6 +2,39 @@ import { type FormEvent } from 'react'
 import { services } from '../data/services'
 
 export default function Contact() {
+  const quickFacts = [
+    {
+      icon: '⌂',
+      label: 'Studio',
+      value: 'Nairobi, Kenya',
+      detail: 'Available by appointment',
+    },
+    {
+      icon: '✉',
+      label: 'Email',
+      value: 'asol.media21@gmail.com',
+      detail: 'Best for all enquiries',
+    },
+    {
+      icon: '◎',
+      label: 'Coverage',
+      value: 'Kenya, East Africa, and international',
+      detail: 'Selected projects',
+    },
+    {
+      icon: '↺',
+      label: 'Response',
+      value: 'Usually within 24 hours',
+      detail: 'Within two business days at most',
+    },
+  ]
+
+  const briefPrompts = [
+    'What you need made or covered',
+    'Your timeline, date, or deadline',
+    'Where the project is happening',
+  ]
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
   }
@@ -14,57 +47,57 @@ export default function Contact() {
             <div className="contact-copy">
               <span className="eyebrow">We&#39;d like to hear from you</span>
               <h1>
-                Not every enquiry becomes a project.
+                Let&#39;s make
                 <br />
-                Every conversation <span className="text-accent text-accent-italic">matters</span>.
+                your next story <span className="text-accent text-accent-italic">clear</span>.
               </h1>
               <p>
-                We respond to all serious enquiries within two business days. For time-sensitive productions
-                or event coverage, please note your timeline in the message field — we will prioritise
-                accordingly.
+                Share the essentials and we&#39;ll guide the next step. For urgent productions or event
+                coverage, include your timeline so we can prioritise quickly.
               </p>
-              <p>
-                We are based in Nairobi, Kenya, and serve clients across East Africa, the continent, and
-                internationally for the right projects.
-              </p>
-              <div className="contact-callout">
-                <span className="contact-callout-label">Coming soon</span>
-                <h2>Asol Drone School</h2>
-                <p>
-                  Interested in training? Tick the Drone School box in the form and mention your goals. We
-                  will keep you updated as the school launches.
-                </p>
+
+              <div className="contact-quick-facts" aria-label="Contact highlights">
+                {quickFacts.map((fact) => (
+                  <article className="contact-fact-card" key={fact.label}>
+                    <span className="contact-fact-icon" aria-hidden="true">
+                      {fact.icon}
+                    </span>
+                    <span className="contact-fact-label">{fact.label}</span>
+                    <strong>{fact.value}</strong>
+                    <p>{fact.detail}</p>
+                  </article>
+                ))}
               </div>
-              <div className="contact-meta-list">
-                <div className="contact-meta-row">
-                  <span className="contact-meta-label">Studio</span>
-                  <span className="contact-meta-value">
-                    Nairobi, Kenya
-                    <br />
-                    Available by appointment
+
+              <div className="contact-callout">
+                <div className="contact-callout-head">
+                  <span className="contact-callout-mark" aria-hidden="true">
+                    ✦
                   </span>
+                  <span className="contact-callout-label">Coming soon</span>
                 </div>
-                <div className="contact-meta-row">
-                  <span className="contact-meta-label">Email</span>
-                  <span className="contact-meta-value">asol.media21@gmail.com</span>
-                </div>
-                <div className="contact-meta-row">
-                  <span className="contact-meta-label">Coverage</span>
-                  <span className="contact-meta-value">
-                    Kenya · East Africa · International
-                    <br />
-                    on selected projects
-                  </span>
-                </div>
-                <div className="contact-meta-row">
-                  <span className="contact-meta-label">Response</span>
-                  <span className="contact-meta-value">Within 24 hours</span>
-                </div>
+                <h2>Asol Drone School is on the way.</h2>
+                <p>
+                  Interested in training? Tick the Drone School box and mention your goals. We&#39;ll keep
+                  you updated as it launches.
+                </p>
               </div>
             </div>
 
             <div className="contact-form-panel">
               <span className="eyebrow">Begin here</span>
+              <div className="contact-form-intro">
+                <h2>Send the essentials.</h2>
+                <p>Short is fine. A few useful details help us respond faster.</p>
+              </div>
+              <div className="contact-form-note" aria-label="Helpful details to include">
+                {briefPrompts.map((prompt) => (
+                  <span key={prompt}>
+                    <span aria-hidden="true">+</span>
+                    {prompt}
+                  </span>
+                ))}
+              </div>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="contact-field">
                   <label htmlFor="contact-name">Your name</label>
@@ -80,7 +113,12 @@ export default function Contact() {
                 </div>
                 <div className="contact-field">
                   <label htmlFor="contact-email">Email address</label>
-                  <input id="contact-email" className="contact-input" placeholder="Your preferred email" />
+                  <input
+                    id="contact-email"
+                    className="contact-input"
+                    type="email"
+                    placeholder="Your preferred email"
+                  />
                 </div>
                 <div className="contact-field">
                   <label htmlFor="contact-type">Type of project</label>
@@ -111,7 +149,7 @@ export default function Contact() {
                     id="contact-brief"
                     className="contact-textarea"
                     rows={5}
-                    placeholder="What are you trying to communicate, preserve, or share? The more context you give, the better we can serve you."
+                    placeholder="Tell us what you need, when it is happening, and anything important we should know."
                   />
                 </div>
                 <button className="contact-submit" type="submit">
