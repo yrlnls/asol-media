@@ -4,11 +4,14 @@ import { workCategories } from '../data/workCategories'
 import { workGalleryImages } from '../data/workGalleries'
 
 const PASS_GALLERY_URL = 'https://asolmediaproduction.passgallery.com/client'
+const WEDDINGS_GALLERY_URL =
+  'https://asolmediaproduction.passgallery.com/-ichliebedich/sneakpeek'
 
 export default function WorkGallery() {
   const { categoryId } = useParams<{ categoryId: string }>()
   const category = workCategories.find((item) => item.id === categoryId)
   const gallery = categoryId ? workGalleryImages[categoryId] : undefined
+  const viewMoreUrl = categoryId === 'weddings' ? WEDDINGS_GALLERY_URL : PASS_GALLERY_URL
 
   if (!category || !gallery) {
     return (
@@ -43,7 +46,7 @@ export default function WorkGallery() {
               </Link>
               <a
                 className="btn btn-primary"
-                href={PASS_GALLERY_URL}
+                href={viewMoreUrl}
                 target="_blank"
                 rel="noopener"
               >
@@ -68,7 +71,7 @@ export default function WorkGallery() {
           </div>
 
           <div className="gallery-cta">
-            <a className="btn btn-primary" href={PASS_GALLERY_URL} target="_blank" rel="noopener">
+            <a className="btn btn-primary" href={viewMoreUrl} target="_blank" rel="noopener">
               View More 
             </a>
           </div>

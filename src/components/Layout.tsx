@@ -263,7 +263,7 @@ export default function Layout() {
                 <path d="M23 12.2c0-2-.2-3.4-.5-4.1-.3-.8-1.1-1.4-2-1.6C18.8 6 12 6 12 6s-6.8 0-8.5.5c-.9.2-1.7.8-2 1.6C1.2 8.8 1 10.2 1 12.2s.2 3.4.5 4.1c.3.8 1.1 1.4 2 1.6 1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5c.9-.2 1.7-.8 2-1.6.3-.7.5-2.1.5-4.1zM10 15.3v-6.6l6 3.3-6 3.3z" />
               </svg>
             </a>
-            <a href="https://asolmediaproduction.passgallery.com/client" aria-label="Pass Gallery" className="social-link social-passgallery" target="_blank" rel="noopener">
+            <a href="https://asolmediaproduction.passgallery.com/professional?_gl=1*d8rkkl*_gcl_au*MTY2NjA5MjY4Ny4xNzc1OTYyNjU5LjE5Njg1OTk1OTkuMTc3NjQxNTg4NS4xNzc2NDE1ODg0#%7Cclient%7Cclientgalleries" aria-label="Pass Gallery" className="social-link social-passgallery" target="_blank" rel="noopener">
               <ImageWithFallback
                 src="/passgallery_logo.webp"
                 alt="Pass Gallery"
