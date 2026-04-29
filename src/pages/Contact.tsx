@@ -16,6 +16,12 @@ export default function Contact() {
       detail: 'Best for all enquiries',
     },
     {
+      icon: '☎',
+      label: 'Mobile',
+      value: ' +254 703 968743 / +254 748 668421 ',
+      detail: 'Call or WhatsApp for urgent enquiries',
+    },
+    {
       icon: '◎',
       label: 'Coverage',
       value: 'Kenya, East Africa, and international',
