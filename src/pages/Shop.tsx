@@ -28,7 +28,7 @@ const collectionLogistics = [
   {
     title: 'Production Time',
     icon: 'production',
-    description: '7-14 days from order to dispatch. Some things are worth allowing time for.',
+    description: '5-10 days from order to dispatch. Some things are worth allowing time for.',
   },
   {
     title: 'Where They Live',
