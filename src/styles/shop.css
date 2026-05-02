@@ -31,12 +31,71 @@
   padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-3xl);
 }
 
+.shop-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
 .shop-hero-copy {
   display: grid;
   justify-items: start;
   text-align: left;
   gap: var(--space-md);
   max-width: 52rem;
+}
+
+.shop-hero-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(160px, 0.8fr);
+  gap: var(--space-md);
+  min-height: 36rem;
+}
+
+.shop-hero-gallery-main,
+.shop-hero-gallery-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  border-radius: calc(var(--radius-xl) + 6px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(14, 20, 16, 0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 44px rgba(0, 0, 0, 0.22);
+}
+
+.shop-hero-gallery-main::after,
+.shop-hero-gallery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(7, 10, 8, 0.26) 100%);
+  pointer-events: none;
+}
+
+.shop-hero-gallery-main img,
+.shop-hero-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-hero-gallery-main {
+  min-height: 36rem;
+}
+
+.shop-hero-gallery-stack {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.shop-hero-gallery-card {
+  min-height: 0;
 }
 
 .shop-kicker,
@@ -438,10 +497,19 @@
 }
 
 @media (max-width: 1024px) {
+  .shop-hero-grid,
   .shop-story-grid,
   .shop-edition-grid,
   .shop-catalog-header {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .shop-hero-gallery {
+    min-height: 30rem;
+  }
+
+  .shop-hero-gallery-main {
+    min-height: 30rem;
   }
 
   .shop-logistics-grid {
@@ -467,12 +535,31 @@
     padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-2xl);
   }
 
+  .shop-hero-grid,
   .shop-story-grid,
   .shop-edition-grid,
   .shop-catalog-header,
   .shop-size-grid,
   .shop-logistics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .shop-hero-gallery {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .shop-hero-gallery-main {
+    min-height: 22rem;
+  }
+
+  .shop-hero-gallery-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  .shop-hero-gallery-card {
+    aspect-ratio: 4 / 5;
   }
 
   .shop-story-grid,

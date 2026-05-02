@@ -37,6 +37,13 @@ const collectionLogistics = [
   },
 ]
 
+const shopCarouselImages = [
+  { src: '/shop-carousel-1.webp', alt: 'Framed print collection display' },
+  { src: '/shop-carousel-2.webp', alt: 'Fine art print styled in an interior space' },
+  { src: '/shop-carousel-3.webp', alt: 'Gallery-style print presentation' },
+  { src: '/shop-carousel-4.webp', alt: 'Curated wall art arrangement from the print collection' },
+]
+
 type LogisticsIconKey = (typeof collectionLogistics)[number]['icon']
 
 function LogisticsIcon({ type }: { type: LogisticsIconKey }) {
@@ -100,16 +107,43 @@ export default function Shop() {
     <div className="shop-page">
       <section className="shop-hero">
         <div className="container shop-shell">
-          <div className="shop-hero-copy">
-            <h1>
-              The Print
-              <span> Collection</span>
-            </h1>
-            <p className="shop-hero-tagline">Own a moment. Frame a perspective.</p>
-            <p className="shop-hero-summary">
-              Choose a piece or package, tap through to WhatsApp, and we will continue with your
-              selected item already filled in.
-            </p>
+          <div className="shop-hero-grid">
+            <div className="shop-hero-copy">
+              <h1>
+                The Print
+                <span> Collection</span>
+              </h1>
+              <p className="shop-hero-tagline">Own a moment. Frame a perspective.</p>
+              <p className="shop-hero-summary">
+                Choose a piece or package, tap through to WhatsApp, and we will continue with your
+                selected item already filled in.
+              </p>
+            </div>
+
+            <div className="shop-hero-gallery" aria-label="Shop collection highlights">
+              <div className="shop-hero-gallery-main">
+                <ImageWithFallback
+                  src={shopCarouselImages[0].src}
+                  alt={shopCarouselImages[0].alt}
+                  loading="eager"
+                  fetchPriority="high"
+                  sizes="(max-width: 768px) 100vw, 38vw"
+                />
+              </div>
+              <div className="shop-hero-gallery-stack">
+                {shopCarouselImages.slice(1).map((image) => (
+                  <div className="shop-hero-gallery-card" key={image.src}>
+                    <ImageWithFallback
+                      src={image.src}
+                      alt={image.alt}
+                      loading="lazy"
+                      fetchPriority="low"
+                      sizes="(max-width: 768px) 33vw, 16vw"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
