@@ -10,7 +10,7 @@ export const workGalleryImages: WorkGalleryImages = {
       { src: '/GOVT.webp', alt: 'The President in attendance' },
       { src: '/KDF5.webp', alt: 'Military parade moment' },
       { src: '/CHIEFS&ASS.CHIEF5.webp', alt: 'Presentation during government event' },
-      { src: '/CHIEFS&ASS.CHIEF14.webp', alt: 'Regional administrators parade' },
+      { src: '/CHIEFS&ASS.CHIEF14.webp', alt: 'NGAO graduation' },
       { src: '/new01.webp', alt: 'Officials in discussion during an event' },
       { src: '/new02.webp', alt: 'Senior officials arrival' },
       { src: '/new04.webp', alt: 'Government officials speeches' },
