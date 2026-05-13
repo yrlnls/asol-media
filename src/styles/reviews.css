@@ -1,0 +1,212 @@
+/* ============================
+   Reviews Section
+   ============================ */
+.reviews-section {
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.12), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0)),
+    var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.reviews-section.embedded {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.reviews-section.embedded .container {
+  padding: 0;
+}
+
+.reviews-shell {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.reviews-intro {
+  max-width: 720px;
+}
+
+.reviews-intro h2 {
+  margin-bottom: var(--space-md);
+}
+
+.reviews-intro p {
+  color: var(--color-text-secondary);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.reviews-panel {
+  position: relative;
+  padding: clamp(1.75rem, 3vw, 3rem);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(123, 135, 72, 0.22);
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.13), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)),
+    rgba(9, 12, 8, 0.94);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.reviews-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 30%);
+  pointer-events: none;
+}
+
+.reviews-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-panel-head {
+  margin-bottom: var(--space-xl);
+}
+
+.reviews-panel-head h3 {
+  margin-bottom: var(--space-sm);
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.reviews-panel-head p {
+  color: var(--color-text-secondary);
+  max-width: 34ch;
+}
+
+.reviews-form {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.reviews-field {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.reviews-field span {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.reviews-field input,
+.reviews-field textarea {
+  width: 100%;
+  padding: 1.05rem 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--color-text-primary);
+  font: inherit;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.reviews-field textarea {
+  resize: vertical;
+  min-height: 170px;
+}
+
+.reviews-field input::placeholder,
+.reviews-field textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.reviews-field input:focus,
+.reviews-field textarea:focus {
+  border-color: rgba(153, 167, 85, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.reviews-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0;
+}
+
+.reviews-star {
+  padding: 0.1rem;
+  color: rgba(216, 199, 119, 0.28);
+  font-size: 2rem;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.reviews-star.is-active {
+  color: #d8c777;
+}
+
+.reviews-star:focus-visible {
+  outline: none;
+  color: #d8c777;
+}
+
+.reviews-success {
+  color: var(--color-accent-light);
+  font-size: 0.95rem;
+}
+
+.reviews-empty {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+.reviews-list {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.review-card {
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 216px;
+  display: grid;
+  align-content: start;
+}
+
+.review-rating {
+  margin-bottom: var(--space-md);
+  color: #d8c777;
+  letter-spacing: 0.14em;
+}
+
+.review-rating span {
+  color: rgba(216, 199, 119, 0.28);
+}
+
+.review-message {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text-secondary);
+  font-size: 1.03rem;
+  line-height: 1.9;
+}
+
+.review-meta {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.review-meta strong {
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+}
+
+.review-meta span {
+  color: var(--color-text-muted);
+}

@@ -28,6 +28,35 @@
   z-index: 1;
 }
 
+.clients-reviews {
+  position: relative;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(var(--color-accent-rgb), 0.14), transparent 30%),
+    linear-gradient(180deg, rgba(3, 5, 3, 0.96), rgba(6, 9, 5, 0.98));
+}
+
+.clients-reviews::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.clients-reviews .container {
+  position: relative;
+  z-index: 1;
+}
+
+.clients-reviews-header {
+  margin-bottom: var(--space-3xl);
+}
+
+.clients-reviews-header p {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
 .client-logos {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

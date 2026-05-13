@@ -81,6 +81,10 @@
     grid-template-columns: 1fr;
   }
 
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
   .drone-school-track-grid,
   .about-pillars,
   .about-value-grid {
@@ -219,6 +223,14 @@
 
   .form-panel {
     padding: var(--space-2xl);
+  }
+
+  .reviews-panel {
+    padding: var(--space-xl);
+  }
+
+  .reviews-section.embedded .container {
+    padding: 0;
   }
 
   .modal-content {
