@@ -12,7 +12,7 @@ export default function Contact() {
     {
       icon: '✉',
       label: 'Email',
-      value: 'asol.media21@gmail.com',
+      value: 'info@asolmedia.com',
       detail: 'Best for all enquiries',
     },
     {
