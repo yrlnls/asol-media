@@ -1,5 +1,5 @@
 import emailjs from '@emailjs/browser'
-import { type ChangeEvent, type FormEvent, useState } from 'react'
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import { services } from '../data/services'
 
 type ContactFormData = {
@@ -57,6 +57,29 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(
     null,
   )
+  const [isSubmitStatusFading, setIsSubmitStatusFading] = useState(false)
+
+  useEffect(() => {
+    if (submitStatus?.type !== 'success') {
+      setIsSubmitStatusFading(false)
+      return
+    }
+
+    setIsSubmitStatusFading(false)
+
+    const fadeTimeoutId = window.setTimeout(() => {
+      setIsSubmitStatusFading(true)
+    }, 4200)
+
+    const clearTimeoutId = window.setTimeout(() => {
+      setSubmitStatus(null)
+    }, 5000)
+
+    return () => {
+      window.clearTimeout(fadeTimeoutId)
+      window.clearTimeout(clearTimeoutId)
+    }
+  }, [submitStatus])
 
   const quickFacts = [
     {
@@ -328,7 +351,9 @@ export default function Contact() {
                 {submitStatus ? (
                   <>
                     <p
-                      className={`contact-form-status contact-form-status-${submitStatus.type}`}
+                      className={`contact-form-status contact-form-status-${submitStatus.type} ${
+                        isSubmitStatusFading ? 'contact-form-status-fading' : ''
+                      }`}
                       role={submitStatus.type === 'error' ? 'alert' : 'status'}
                     >
                       {submitStatus.message}
