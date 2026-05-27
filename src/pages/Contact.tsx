@@ -1,6 +1,7 @@
 import emailjs from '@emailjs/browser'
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import { services } from '../data/services'
+import { trackFormSubmission } from '../lib/analytics'
 
 type ContactFormData = {
   name: string
@@ -191,13 +192,16 @@ export default function Contact() {
         type: 'success',
         message: 'Your enquiry has been sent. We will be in touch soon.',
       })
+      trackFormSubmission('contact_form', true)
       setFormData(initialFormData)
     } catch (error) {
       console.error('EmailJS send failed', error)
+      const errorMsg = getErrorMessage(error)
       setSubmitStatus({
         type: 'error',
-        message: getErrorMessage(error),
+        message: errorMsg,
       })
+      trackFormSubmission('contact_form', false, errorMsg)
     } finally {
       setIsSubmitting(false)
     }

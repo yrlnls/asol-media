@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import ImageWithFallback from '../components/ImageWithFallback'
 import { workCategories } from '../data/workCategories'
 import { workGalleryImages } from '../data/workGalleries'
+import { trackExternalLink, trackButtonClick } from '../lib/analytics'
 
 const PASS_GALLERY_URL = 'https://asolmediaproduction.passgallery.com/client'
 const WEDDINGS_GALLERY_URL =
@@ -41,7 +42,11 @@ export default function WorkGallery() {
             <h1>{category.title}</h1>
             <p>{category.intro}</p>
             <div className="page-hero-actions">
-              <Link className="btn btn-secondary" to="/work">
+              <Link 
+                className="btn btn-secondary" 
+                to="/work"
+                onClick={() => trackButtonClick('Back to Work', '/work', 'work-gallery')}
+              >
                 Back to Work
               </Link>
               <a
@@ -49,6 +54,7 @@ export default function WorkGallery() {
                 href={viewMoreUrl}
                 target="_blank"
                 rel="noopener"
+                onClick={() => trackExternalLink(viewMoreUrl, `View More ${category.title}`)}
               >
                 View More 
               </a>
@@ -71,7 +77,13 @@ export default function WorkGallery() {
           </div>
 
           <div className="gallery-cta">
-            <a className="btn btn-primary" href={viewMoreUrl} target="_blank" rel="noopener">
+            <a 
+              className="btn btn-primary" 
+              href={viewMoreUrl} 
+              target="_blank" 
+              rel="noopener"
+              onClick={() => trackExternalLink(viewMoreUrl, `View More ${category.title} Gallery`)}
+            >
               View More 
             </a>
           </div>

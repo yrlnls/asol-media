@@ -1,5 +1,6 @@
 import ImageWithFallback from '../components/ImageWithFallback'
 import { products } from '../data/products'
+import { trackButtonClick, trackExternalLink } from '../lib/analytics'
 
 const WHATSAPP_NUMBER = '254703968743'
 const BASE_MESSAGE = 'Hey I am interested in this product..'
@@ -260,6 +261,10 @@ export default function Shop() {
                     href={whatsappLink(product.name)}
                     target="_blank"
                     rel="noopener"
+                    onClick={() => {
+                      trackButtonClick(`Buy: ${product.name}`, whatsappLink(product.name), 'shop')
+                      trackExternalLink(whatsappLink(product.name), `Buy ${product.name}`)
+                    }}
                   >
                     Buy
                   </a>

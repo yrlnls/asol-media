@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { trackButtonClick } from '../lib/analytics'
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -85,8 +86,16 @@ export default function Home() {
               ))}
             </div>
             <div className="hero-actions">
-              <Link to="/work" className="btn btn-primary">View Our Work</Link>
-              <Link to="/contact" className="btn btn-secondary">Start a Conversation</Link>
+              <Link 
+                to="/work" 
+                className="btn btn-primary"
+                onClick={() => trackButtonClick('View Our Work', '/work', 'hero')}
+              >View Our Work</Link>
+              <Link 
+                to="/contact" 
+                className="btn btn-secondary"
+                onClick={() => trackButtonClick('Start a Conversation', '/contact', 'hero')}
+              >Start a Conversation</Link>
             </div>
           </div>
           <div className="hero-stat-strip" aria-label="Studio snapshot">
@@ -115,10 +124,18 @@ export default function Home() {
                 <li>Camera movement, composition, and aerial storytelling</li>
               </ul>
               <div className="drone-school-actions">
-                <Link to="/contact" className="btn btn-primary">
+                <Link 
+                  to="/contact" 
+                  className="btn btn-primary"
+                  onClick={() => trackButtonClick('Join the waitlist', '/contact', 'drone-school')}
+                >
                   Join the waitlist
                 </Link>
-                <Link to="/contact" className="btn btn-secondary">
+                <Link 
+                  to="/contact" 
+                  className="btn btn-secondary"
+                  onClick={() => trackButtonClick('Ask about the school', '/contact', 'drone-school')}
+                >
                   Ask about the school
                 </Link>
               </div>

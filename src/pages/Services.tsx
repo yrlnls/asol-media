@@ -4,6 +4,7 @@ import Modal from '../components/Modal'
 import ServiceModalActions from '../components/services/ServiceModalActions'
 import ServiceModalContent from '../components/services/ServiceModalContent'
 import { services } from '../data/services'
+import { trackButtonClick } from '../lib/analytics'
 
 export default function Services() {
   const [activeServiceId, setActiveServiceId] = useState<string | null>(null)
@@ -27,6 +28,10 @@ export default function Services() {
   const openService = (serviceId: string, event: MouseEvent<HTMLButtonElement>) => {
     triggerRef.current = event.currentTarget
     setActiveServiceId(serviceId)
+    const service = services.find((s) => s.id === serviceId)
+    if (service) {
+      trackButtonClick(`View Service: ${service.title}`, undefined, 'services-modal')
+    }
   }
 
   const closeService = () => setActiveServiceId(null)
