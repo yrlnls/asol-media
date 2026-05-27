@@ -1,6 +1,5 @@
-import { lazy } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import GoogleAnalytics from './components/GoogleAnalytics'
+import { lazy, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
 
 const Home = lazy(() => import('./pages/Home'))
@@ -14,10 +13,20 @@ const Insights = lazy(() => import('./pages/Insights'))
 const Contact = lazy(() => import('./pages/Contact'))
 
 function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Track page views on route changes
+    if (window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname,
+        page_title: document.title,
+      })
+    }
+  }, [location])
+
   return (
-    <>
-      <GoogleAnalytics />
-      <Routes>
+    <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
@@ -30,7 +39,6 @@ function App() {
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
-    </>
   )
 }
 
