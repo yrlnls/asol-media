@@ -218,3 +218,27 @@
   opacity: 0.03;
   font-weight: 400;
 }
+
+@media (max-width: 1024px) {
+  .hero-carousel-slide {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel-slide {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-carousel-slide {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}

@@ -19,6 +19,18 @@
   .hero-stat-strip {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-carousel {
+    min-height: 100vh;
+  }
+
+  .hero-carousel-slide {
+    min-height: 100vh;
+  }
   
   .hero-visual {
     display: none;
@@ -166,8 +178,16 @@
   }
 
   .hero {
-    min-height: auto;
-    padding-bottom: var(--space-4xl);
+    min-height: 100vh;
+    padding-bottom: 0;
+  }
+
+  .hero-carousel {
+    min-height: 100vh;
+  }
+
+  .hero-carousel-slide {
+    min-height: 100vh;
   }
 
   .hero-content p {
@@ -296,6 +316,18 @@
   .cta-actions,
   .form-actions {
     gap: var(--space-sm);
+  }
+
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-carousel {
+    min-height: 100vh;
+  }
+
+  .hero-carousel-slide {
+    min-height: 100vh;
   }
 
   .page-hero {
