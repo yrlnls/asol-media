@@ -8,7 +8,7 @@ import {
   query,
   serverTimestamp,
 } from 'firebase/firestore'
-import { db } from '../lib/firebase'
+import { db, firebaseConfigError } from '../lib/firebase'
 
 type Review = {
   id: string
@@ -55,6 +55,11 @@ export default function ReviewsSection({
   const [loadError, setLoadError] = useState('')
 
   useEffect(() => {
+    if (!db) {
+      setLoadError('Reviews are not available right now.')
+      return
+    }
+
     const reviewsQuery = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'))
 
     const unsubscribe = onSnapshot(
@@ -93,6 +98,12 @@ export default function ReviewsSection({
     event.preventDefault()
     setIsSubmitting(true)
     setSubmitMessage('')
+
+    if (!db) {
+      setSubmitMessage(firebaseConfigError || 'Reviews are not configured yet.')
+      setIsSubmitting(false)
+      return
+    }
 
     try {
       await addDoc(collection(db, 'reviews'), {

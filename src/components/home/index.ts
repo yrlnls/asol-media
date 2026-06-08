@@ -1,0 +1,5 @@
+export { default as FeaturedWorkSection } from './FeaturedWorkSection'
+export { default as ClientsShowcase } from './ClientsShowcase'
+export { default as ServicesPreview } from './ServicesPreview'
+export { default as ShopHighlight } from './ShopHighlight'
+export { default as InsightsPreview } from './InsightsPreview'

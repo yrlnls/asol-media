@@ -3,6 +3,8 @@
    ============================ */
 .section-header {
   margin-bottom: var(--space-3xl);
+  animation: fadeInUp 0.8s ease-out backwards;
+  max-width: 760px;
 }
 
 .section-header.center {
@@ -12,10 +14,29 @@
   margin-right: auto;
 }
 
+.section-header .eyebrow {
+  display: inline-block;
+  animation: fadeInDown 0.8s ease-out 0.1s backwards;
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
 .section-header h2 {
   margin-bottom: var(--space-lg);
+  animation: fadeInUp 0.8s ease-out 0.15s backwards;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: 0;
 }
 
 .section-header p {
   font-size: 1.1rem;
+  animation: fadeInUp 0.8s ease-out 0.25s backwards;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 58rem;
 }

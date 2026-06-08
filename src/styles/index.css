@@ -4,8 +4,10 @@
 @import './cursor.css';
 @import './typography.css';
 @import './layout.css';
+@import './animations.css';
 @import './header.css';
 @import './hero.css';
+@import './home-sections.css';
 @import './page-hero.css';
 @import './drone-school.css';
 @import './legacy.css';

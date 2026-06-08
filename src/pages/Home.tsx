@@ -1,14 +1,30 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { trackButtonClick } from '../lib/analytics'
+import { useReveal } from '../lib/useReveal'
+import FeaturedWorkSection from '../components/home/FeaturedWorkSection'
+import ClientsShowcase from '../components/home/ClientsShowcase'
+import ServicesPreview from '../components/home/ServicesPreview'
+import ShopHighlight from '../components/home/ShopHighlight'
+import InsightsPreview from '../components/home/InsightsPreview'
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const featuredWorkRef = useReveal(0.1)
+  const clientsRef = useReveal(0.1)
+  const servicesRef = useReveal(0.1)
+  const shopRef = useReveal(0.1)
+  const insightsRef = useReveal(0.1)
+  
   const heroHighlights = ['Film', 'Photography', 'Livestream', 'Drone']
   const heroStats = [
     { value: '4', label: 'core disciplines' },
-    { value: '18+', label: 'featured moments on rotation' },
-    { value: '1', label: 'story-first studio' },
+    { value: '18+', label: 'field-tested story sets' },
+    { value: '1', label: 'strategy-led studio' },
+  ]
+  const heroProofPoints = [
+    'Trusted by public institutions, NGOs, companies, and cultural leaders.',
+    'Built for moments where the final image has to carry memory and meaning.',
   ]
   const droneSchoolTracks = [
     { label: 'Flight', detail: 'Practical flying sessions' },
@@ -69,16 +85,18 @@ export default function Home() {
           <div className="hero-content">
             <span className="eyebrow">Strategic Visual Communications</span>
             <h1>
-              Some stories
+              Premium visual
               <br />
-              are too <span className="text-accent text-accent-italic">sacred</span>
+              stories for
               <br />
-              for ordinary
+              moments that
               <br />
-              frames.
+              cannot feel
+              <br />
+              <span className="text-accent text-accent-italic">ordinary.</span>
             </h1>
             <p>
-              Cinematic visuals for memory, heritage, and high-stakes moments.
+              Asol Media creates cinematic film, photography, livestream, and aerial coverage for institutions, families, and brands with something important to preserve.
             </p>
             <div className="hero-highlights" aria-label="Core offerings">
               {heroHighlights.map((item) => (
@@ -89,13 +107,18 @@ export default function Home() {
               <Link 
                 to="/work" 
                 className="btn btn-primary"
-                onClick={() => trackButtonClick('View Our Work', '/work', 'hero')}
-              >View Our Work</Link>
+                onClick={() => trackButtonClick('Explore Signature Work', '/work', 'hero')}
+              >Explore Signature Work</Link>
               <Link 
                 to="/contact" 
                 className="btn btn-secondary"
-                onClick={() => trackButtonClick('Start a Conversation', '/contact', 'hero')}
-              >Start a Conversation</Link>
+                onClick={() => trackButtonClick('Plan a Project', '/contact', 'hero')}
+              >Plan a Project</Link>
+            </div>
+            <div className="hero-proof-list" aria-label="Brand proof points">
+              {heroProofPoints.map((point) => (
+                <span key={point}>{point}</span>
+              ))}
             </div>
           </div>
           <div className="hero-stat-strip" aria-label="Studio snapshot">
@@ -105,6 +128,37 @@ export default function Home() {
                 <span>{item.label}</span>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* New Homepage Sections */}
+      <div ref={featuredWorkRef}>
+        <FeaturedWorkSection />
+      </div>
+      <div ref={clientsRef}>
+        <ClientsShowcase />
+      </div>
+      <div ref={servicesRef}>
+        <ServicesPreview />
+      </div>
+      <div ref={shopRef}>
+        <ShopHighlight />
+      </div>
+      <div ref={insightsRef}>
+        <InsightsPreview />
+      </div>
+
+      <section id="legacy" className="section legacy">
+        <div className="container">
+          <div className="panel legacy-card">
+            <span className="legacy-eyebrow">
+              Named in legacy · rooted in Rarieda · carried forward
+            </span>
+            <h2 className="legacy-title">Asol</h2>
+            <p className="legacy-copy">
+              Not a brand invention, but an inheritance. Named for Mama Esther Asol Were, the studio exists to treat everyday lives with the same care, dignity, and cinematic craft often reserved for power.
+            </p>
           </div>
         </div>
       </section>
@@ -160,20 +214,6 @@ export default function Home() {
                 <span>Certification-ready guidance</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="legacy" className="section legacy">
-        <div className="container">
-          <div className="panel legacy-card">
-            <span className="legacy-eyebrow">
-              Named in legacy · rooted in Rarieda · carried forward
-            </span>
-            <h2 className="legacy-title">Asol</h2>
-            <p className="legacy-copy">
-              Not a brand invention, but an inheritance. Named for Mama Esther Asol Were, the studio exists to treat everyday lives with the same care, dignity, and cinematic craft often reserved for power.
-            </p>
           </div>
         </div>
       </section>

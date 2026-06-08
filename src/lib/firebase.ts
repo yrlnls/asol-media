@@ -14,12 +14,11 @@ const missingFirebaseConfig = Object.entries(firebaseConfig)
   .filter(([, value]) => !value)
   .map(([key]) => key)
 
-if (missingFirebaseConfig.length > 0) {
-  throw new Error(
-    `Missing Firebase environment variables: ${missingFirebaseConfig.join(', ')}`,
-  )
-}
+export const firebaseConfigError =
+  missingFirebaseConfig.length > 0
+    ? `Missing Firebase environment variables: ${missingFirebaseConfig.join(', ')}`
+    : ''
 
-const app = initializeApp(firebaseConfig)
+const app = firebaseConfigError ? null : initializeApp(firebaseConfig)
 
-export const db = getFirestore(app)
+export const db = app ? getFirestore(app) : null
