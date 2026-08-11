@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { trackButtonClick } from '../lib/analytics'
 import { useReveal } from '../lib/useReveal'
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 import FeaturedWorkSection from '../components/home/FeaturedWorkSection'
 import ClientsShowcase from '../components/home/ClientsShowcase'
 import ServicesPreview from '../components/home/ServicesPreview'
@@ -32,24 +33,24 @@ export default function Home() {
     { label: 'Story', detail: 'Camera movement and coverage' },
   ]
   const heroImages = [
-    { src: '/lp1.jpeg' },
-    { src: '/lp2.jpeg' },
-    { src: '/lp3.jpeg' },
-    { src: '/lp4.jpeg' },
-    { src: '/lp5.jpeg' },
-    { src: '/lp7.jpeg' },
-    { src: '/lp9.jpeg' },
-    { src: '/lp10.jpeg', position: 'center 25%' },
-    { src: '/lp13.jpeg' },
-    { src: '/lp14.jpeg', position: 'center 25%' },
-    { src: '/lp15.jpeg', position: 'center 25%' },
-    { src: '/lp17.jpeg' },
-    { src: '/lp18.jpeg' },
-    { src: '/lp19.jpeg' },
-    { src: '/lp20.jpeg' },
-    { src: '/lp21.jpeg' },
-    { src: '/lp22.jpeg' },
-    { src: '/lp24.jpeg' },
+    { src: getCloudinaryImageUrl('/lp1.jpeg') },
+    { src: getCloudinaryImageUrl('/lp2.jpeg') },
+    { src: getCloudinaryImageUrl('/lp3.jpeg') },
+    { src: getCloudinaryImageUrl('/lp4.jpeg') },
+    { src: getCloudinaryImageUrl('/lp5.jpeg') },
+    { src: getCloudinaryImageUrl('/lp7.jpeg') },
+    { src: getCloudinaryImageUrl('/lp9.jpeg') },
+    { src: getCloudinaryImageUrl('/lp10.jpeg'), position: 'center 25%' },
+    { src: getCloudinaryImageUrl('/lp13.jpeg') },
+    { src: getCloudinaryImageUrl('/lp14.jpeg'), position: 'center 25%' },
+    { src: getCloudinaryImageUrl('/lp15.jpeg'), position: 'center 25%' },
+    { src: getCloudinaryImageUrl('/lp17.jpeg') },
+    { src: getCloudinaryImageUrl('/lp18.jpeg') },
+    { src: getCloudinaryImageUrl('/lp19.jpeg') },
+    { src: getCloudinaryImageUrl('/lp20.jpeg') },
+    { src: getCloudinaryImageUrl('/lp21.jpeg') },
+    { src: getCloudinaryImageUrl('/lp22.jpeg') },
+    { src: getCloudinaryImageUrl('/lp24.jpeg') },
   ]
 
   useEffect(() => {

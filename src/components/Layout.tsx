@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import ImageWithFallback from './ImageWithFallback'
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 
 export default function Layout() {
   const [menuOpenedOnPath, setMenuOpenedOnPath] = useState<string | null>(null)
@@ -265,7 +266,7 @@ export default function Layout() {
             </a>
             <a href="https://asolmediaproduction.passgallery.com/professional?_gl=1*d8rkkl*_gcl_au*MTY2NjA5MjY4Ny4xNzc1OTYyNjU5LjE5Njg1OTk1OTkuMTc3NjQxNTg4NS4xNzc2NDE1ODg0#%7Cclient%7Cclientgalleries" aria-label="Pass Gallery" className="social-link social-passgallery" target="_blank" rel="noopener">
               <ImageWithFallback
-                src="/passgallery_logo.webp"
+                src={getCloudinaryImageUrl('/passgallery_logo.webp')}
                 alt="Pass Gallery"
                 loading="lazy"
                 decoding="async"

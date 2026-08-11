@@ -1,4 +1,5 @@
 import { useEffect, useState, type ImgHTMLAttributes, type ReactEventHandler } from 'react'
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 
 const FALLBACK_EXTENSIONS = [
   '.webp',
@@ -23,15 +24,20 @@ export default function ImageWithFallback({
   onError,
   ...props
 }: ImageWithFallbackProps) {
-  const [currentSrc, setCurrentSrc] = useState(src)
+  const [currentSrc, setCurrentSrc] = useState(() => getCloudinaryImageUrl(src))
   const [attempt, setAttempt] = useState(0)
 
   useEffect(() => {
-    setCurrentSrc(src)
+    setCurrentSrc(getCloudinaryImageUrl(src))
     setAttempt(0)
   }, [src])
 
   const handleError: ReactEventHandler<HTMLImageElement> = (event) => {
+    if (currentSrc.includes('res.cloudinary.com')) {
+      onError?.(event)
+      return
+    }
+
     const match = currentSrc.match(/\.(webp|jpg|jpeg|png)(\?.*)?$/i)
     if (!match) {
       onError?.(event)

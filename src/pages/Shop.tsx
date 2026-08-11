@@ -1,6 +1,7 @@
 import ImageWithFallback from '../components/ImageWithFallback'
 import { products } from '../data/products'
 import { trackButtonClick, trackExternalLink } from '../lib/analytics'
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 
 const WHATSAPP_NUMBER = '254703968743'
 const BASE_MESSAGE = 'Hey I am interested in this product..'
@@ -39,10 +40,10 @@ const collectionLogistics = [
 ]
 
 const shopCarouselImages = [
-  { src: '/shop-carousel-1.webp', alt: 'Framed print collection display' },
-  { src: '/shop-carousel-2.webp', alt: 'Fine art print styled in an interior space' },
-  { src: '/shop-carousel-3.webp', alt: 'Gallery-style print presentation' },
-  { src: '/shop-carousel-4.webp', alt: 'Curated wall art arrangement from the print collection' },
+  { src: getCloudinaryImageUrl('/shop-carousel-1.webp'), alt: 'Framed print collection display' },
+  { src: getCloudinaryImageUrl('/shop-carousel-2.webp'), alt: 'Fine art print styled in an interior space' },
+  { src: getCloudinaryImageUrl('/shop-carousel-3.webp'), alt: 'Gallery-style print presentation' },
+  { src: getCloudinaryImageUrl('/shop-carousel-4.webp'), alt: 'Curated wall art arrangement from the print collection' },
 ]
 
 type LogisticsIconKey = (typeof collectionLogistics)[number]['icon']

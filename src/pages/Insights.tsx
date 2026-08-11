@@ -1,4 +1,5 @@
 import ImageWithFallback from '../components/ImageWithFallback'
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 
 const insights = [
   {
@@ -52,7 +53,7 @@ export default function Insights() {
           <div className="page-hero-media insights-hero-media">
             <div className="media-shell insights-hero-shell">
               <ImageWithFallback
-                src="/insights.jpg"
+                src={getCloudinaryImageUrl('/insights.jpg')}
                 alt="Editorial workspace for Asol Media insights"
                 className="insights-hero-image"
                 loading="eager"
