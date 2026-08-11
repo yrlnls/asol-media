@@ -1,3 +1,4 @@
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 export type Product = {
   id: string
   category: string
@@ -16,7 +17,7 @@ export const products: Product[] = [
     description: 'High-quality matte print mounted and ready to hang.',
     price: 'From KES 7,500',
     availability: 'Made to order',
-    image: { src: '/shop1.jpeg', alt: 'Framed wall print sample' },
+    image: { src: getCloudinaryImageUrl('/shop1.jpeg'), alt: 'Framed wall print sample' },
   },
   {
     id: 'wedding-photo-album',
@@ -25,7 +26,7 @@ export const products: Product[] = [
     description: 'Layflat premium album with retouched images and protective case.',
     price: 'From KES 18,500',
     availability: 'Custom finish',
-    image: { src: '/wedo.jpeg', alt: 'Wedding couple album preview' },
+    image: { src: getCloudinaryImageUrl('/wedo.jpeg'), alt: 'Wedding couple album preview' },
   },
   {
     id: 'drone-shots',
@@ -34,6 +35,6 @@ export const products: Product[] = [
     description: 'Aerial photography + 10 edited stills and raw clips delivered.',
     price: 'From KES 15,000',
     availability: 'Weather dependent',
-    image: { src: '/drone-pic.jpeg', alt: 'Aerial drone over venue' },
+    image: { src: getCloudinaryImageUrl('/drone-pic.jpeg'), alt: 'Aerial drone over venue' },
   },
 ]

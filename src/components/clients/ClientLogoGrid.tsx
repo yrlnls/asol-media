@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import ImageWithFallback from '../ImageWithFallback'
+import { getCloudinaryImageUrl } from '../../lib/cloudinary'
 
 type ClientLogo = {
   name: string
@@ -10,37 +11,37 @@ type ClientLogo = {
 const clientLogos: ClientLogo[] = [
   {
     name: 'Ministry of Trade',
-    src: '/Ministry%20logo.webp',
+    src: getCloudinaryImageUrl('/Ministry%20logo.webp'),
     scale: 1.2,
   },
   {
     name: 'PBORA',
-    src: '/PBORA%20FINAL%20LOGO.webp',
+    src: getCloudinaryImageUrl('/PBORA%20FINAL%20LOGO.webp'),
     scale: 1.2,
   },
   {
     name: 'PS',
-    src: '/PS%20NO%20BG.webp',
+    src: getCloudinaryImageUrl('/PS%20NO%20BG.webp'),
   },
   {
     name: 'Nam-Lolwe',
-    src: '/NAM%20LOLWE%20LOGO.webp',
+    src: getCloudinaryImageUrl('/NAM%20LOLWE%20LOGO.webp'),
   },
   {
     name: 'Client Logo',
-    src: '/1000329968-removebg.webp',
+    src: getCloudinaryImageUrl('/1000329968-removebg.webp'),
   },
   {
     name: 'Flamingo',
-    src: '/FLAMINGO%20GROUP.webp',
+    src: getCloudinaryImageUrl('/FLAMINGO%20GROUP.webp'),
   },
   {
     name: 'Immaculate & Adhoch 1',
-    src: '/immaculate&adhoch1.jpeg',
+    src: getCloudinaryImageUrl('/immaculate&adhoch1.jpeg'),
   },
   {
     name: ' Danish Refugee Council',
-    src: '/drc.png',
+    src: getCloudinaryImageUrl('/drc.png'),
   }
 
 ]

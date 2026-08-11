@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# Asol Media (asol-media)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Asol Media is a **visual communications studio** creating premium **film, photography, livestream, and aerial coverage** for institutions, families, and brands—built for moments that cannot feel ordinary.
 
-Currently, two official plugins are available:
+## Highlights
+- **Cinematic homepage experience** with a hero carousel and sectioned marketing content
+- **Modern UI/UX** with accessible navigation patterns (skip link, responsive menu behavior)
+- **Interactive experience** including scroll-reveal sections and a custom cursor layer
+- **Client-side routing** via `react-router-dom` for marketing pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend:** React 19, TypeScript, Vite
+- **Styling:** Tailwind CSS
+- **Routing:** `react-router-dom`
+- **Tooling:** ESLint, PostCSS
+- **Integrations (dependencies):** Firebase, EmailJS, analytics helper hooks (see `src/lib`)
 
-## React Compiler
+## Available Scripts
+From the project root:
+- `npm run dev` — Start development server
+- `npm run build` — Build for production (`tsc -b && vite build`)
+- `npm run lint` — Run ESLint
+- `npm run preview` — Preview the production build locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+### Prerequisites
+- Node.js (LTS recommended)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Install & Run
+```bash
+npm install
+npm run dev
 ```
+Then open the URL shown in your terminal.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Routes / Pages
+The navigation is configured for:
+- `/about`
+- `/services`
+- `/work`
+- `/clients`
+- `/shop`
+- `/insights`
+- `/contact`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The homepage is defined in `src/pages/Home.tsx`, and shared layout/navigation is implemented in `src/components/Layout.tsx`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Deployment
+This project includes a `vercel.json` configuration, and is suitable for deployment on **Vercel**.
+1. Run `npm run build`
+2. Deploy the build output using Vercel (or via Vercel Git integration)
+
+## License
+All rights reserved.

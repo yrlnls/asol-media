@@ -6,7 +6,7 @@
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(4, 6, 4, 0.62) 0%, rgba(6, 8, 6, 0.68) 100%),
-    url('/bg-logo.jpg');
+    url('https://res.cloudinary.com/asol-media/image/upload/f_auto,q_auto/bg-logo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,11 +1,12 @@
 import type { Service } from './services'
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 
 export const workCategories: Service[] = [
   {
     id: 'government-media',
     title: 'Government Media',
     image: {
-      src: '/govt-media.jpeg',
+      src: getCloudinaryImageUrl('/govt-media.jpeg'),
       alt: 'Government media coverage team',
     },
     intro:
@@ -26,7 +27,7 @@ export const workCategories: Service[] = [
     id: 'international-ngo',
     title: 'International and NGO',
     image: {
-      src: '/int-ngo.jpeg',
+      src: getCloudinaryImageUrl('/int-ngo.jpeg'),
       alt: 'NGO field documentation',
     },
     intro:
@@ -47,7 +48,7 @@ export const workCategories: Service[] = [
     id: 'corporate-events',
     title: 'Corporate Events',
     image: {
-      src: '/LOGO_WEBSITE_LAUNCH(pbora)2.webp',
+      src: getCloudinaryImageUrl('/LOGO_WEBSITE_LAUNCH(pbora)2.webp'),
       alt: 'Corporate event media coverage',
     },
     intro:
@@ -68,7 +69,7 @@ export const workCategories: Service[] = [
     id: 'weddings',
     title: 'Weddings',
     image: {
-      src: '/wedding.PNG',
+      src: getCloudinaryImageUrl('/wedding.PNG'),
       alt: 'Wedding photography and videography',
     },
     intro:
@@ -89,7 +90,7 @@ export const workCategories: Service[] = [
     id: 'concerts',
     title: 'Concerts',
     image: {
-      src: '/KOLA5.webp',
+      src: getCloudinaryImageUrl('/KOLA5.webp'),
       alt: 'Live concert coverage',
     },
     intro:
@@ -110,7 +111,7 @@ export const workCategories: Service[] = [
     id: 'farewell',
     title: 'Farewell',
     image: {
-      src: '/farewell.jpeg',
+      src: getCloudinaryImageUrl('/farewell.jpeg'),
       alt: 'Farewell event coverage',
     },
     intro:

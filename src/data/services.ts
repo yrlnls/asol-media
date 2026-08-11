@@ -1,3 +1,4 @@
+import { getCloudinaryImageUrl } from '../lib/cloudinary'
 export type ServiceCta = {
   label: string
   to: string
@@ -23,7 +24,7 @@ export const services: Service[] = [
     id: 'videography',
     title: 'Videography',
     image: {
-      src: '/videography.webp',
+      src: getCloudinaryImageUrl('/videography.webp'),
       alt: 'Videography production in progress',
     },
     intro:
@@ -47,7 +48,7 @@ export const services: Service[] = [
     id: 'photography',
     title: 'Photography',
     image: {
-      src: '/photography.webp',
+      src: getCloudinaryImageUrl('/photography.webp'),
       alt: 'Photography coverage at an event',
     },
     intro:
@@ -71,7 +72,7 @@ export const services: Service[] = [
     id: 'aerial',
     title: 'Aerial Photography and Videography',
     image: {
-      src: '/aerial-photo-video.webp',
+      src: getCloudinaryImageUrl('/aerial-photo-video.webp'),
       alt: 'Aerial photography and videography',
     },
     intro:
@@ -92,7 +93,7 @@ export const services: Service[] = [
     id: 'film-production',
     title: 'Film Production',
     image: {
-      src: '/film-production.webp',
+      src: getCloudinaryImageUrl('/film-production.webp'),
       alt: 'Film production setup',
     },
     intro:
@@ -113,7 +114,7 @@ export const services: Service[] = [
     id: 'livestreaming',
     title: 'Livestreaming and Event Broadcasting',
     image: {
-      src: '/live-event.webp',
+      src: getCloudinaryImageUrl('/live-event.webp'),
       alt: 'Live event broadcasting setup',
     },
     intro:
@@ -134,7 +135,7 @@ export const services: Service[] = [
     id: 'content-creation',
     title: 'Content Creation',
     image: {
-      src: '/content-creation.webp',
+      src: getCloudinaryImageUrl('/content-creation.webp'),
       alt: 'Content creation for brands',
     },
     intro:
@@ -155,7 +156,7 @@ export const services: Service[] = [
     id: 'post-production',
     title: 'Video Editing and Post-Production',
     image: {
-      src: '/video-editing.webp',
+      src: getCloudinaryImageUrl('/video-editing.webp'),
       alt: 'Video editing and post-production',
     },
     intro:
@@ -176,7 +177,7 @@ export const services: Service[] = [
     id: 'event-packages',
     title: 'Event Media Packages',
     image: {
-      src: '/event-support.webp',
+      src: getCloudinaryImageUrl('/event-support.webp'),
       alt: 'Event media support crew',
     },
     intro:
@@ -196,7 +197,7 @@ export const services: Service[] = [
     id: 'corporate-media',
     title: 'Corporate and Institutional Media Services',
     image: {
-      src: '/corporate-institution.webp',
+      src: getCloudinaryImageUrl('/corporate-institution.webp'),
       alt: 'Corporate and institutional media',
     },
     intro:
@@ -216,7 +217,7 @@ export const services: Service[] = [
     id: 'media-crew',
     title: 'Media Crew and Event Support',
     image: {
-      src: '/event-support.webp',
+      src: getCloudinaryImageUrl('/event-support.webp'),
       alt: 'Event media support crew',
     },
     intro:
