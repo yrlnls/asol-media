@@ -10,11 +10,6 @@ const featuredCategories = [
     description: 'Conferences, launches, and high-stakes institutional moments',
   },
   {
-    id: 'weddings',
-    title: 'Weddings',
-    description: 'Love stories told with grace and cinematic care',
-  },
-  {
     id: 'government-media',
     title: 'Government & Public',
     description: 'Institutional moments documented with dignity',

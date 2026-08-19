@@ -178,13 +178,21 @@ export default function Home() {
                 <li>Camera movement, composition, and aerial storytelling</li>
               </ul>
               <div className="drone-school-actions">
-                <Link 
-                  to="/contact" 
-                  className="btn btn-primary"
-                  onClick={() => trackButtonClick('Join the waitlist', '/contact', 'drone-school')}
-                >
-                  Join the waitlist
-                </Link>
+               <a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSevBXD-8UOw_xsAmimy4Kbp_c41VGIwEapQ3OUnAmabIRi_2Q/viewform?usp=sharing&ouid=101404145964398270074"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="btn btn-primary"
+  onClick={() =>
+    trackButtonClick(
+      'Join the waitlist',
+      'https://docs.google.com/forms/d/e/1FAIpQLSevBXD-8UOw_xsAmimy4Kbp_c41VGIwEapQ3OUnAmabIRi_2Q/viewform?usp=sharing&ouid=101404145964398270074',
+      'drone-school'
+    )
+  }
+>
+  Join the waitlist
+</a>
                 <Link 
                   to="/contact" 
                   className="btn btn-secondary"
