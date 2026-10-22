@@ -33,23 +33,26 @@ export default function Home() {
   ]
   const heroImages = [
     { src: '/lp1.jpeg' },
-    { src: '/lp2.jpeg' },
-    { src: '/lp3.jpeg' },
-    { src: '/lp4.jpeg' },
+    { src: '/lp2.jpeg', mobileFullFrame: true },
+    { src: '/lp3.jpeg', mobileFullFrame: true },
+    { src: '/lp4.jpeg', mobileFullFrame: true },
     { src: '/lp5.jpeg' },
-    { src: '/lp7.jpeg' },
-    { src: '/lp9.jpeg' },
+    { src: '/lp7.jpeg', mobileFullFrame: true },
+    { src: '/lp9.jpeg', mobileFullFrame: true },
     { src: '/lp10.jpeg', position: 'center 25%' },
     { src: '/lp13.jpeg' },
-    { src: '/lp14.jpeg', position: 'center 25%' },
-    { src: '/lp15.jpeg', position: 'center 25%' },
-    { src: '/lp17.jpeg' },
+    { src: '/lp14.jpeg', position: 'center 25%', mobileFullFrame: true },
+    { src: '/lp15.jpeg', position: 'center 25%', mobileFullFrame: true },
+    { src: '/lp17.jpeg', mobileFullFrame: true },
     { src: '/lp18.jpeg' },
     { src: '/lp19.jpeg' },
-    { src: '/lp20.jpeg' },
+    { src: '/lp20.jpeg', mobileFullFrame: true },
     { src: '/lp21.jpeg' },
     { src: '/lp22.jpeg' },
-    { src: '/lp24.jpeg' },
+    { src: '/lp24.jpeg', mobileFullFrame: true },
+    { src: '/lake1.jpeg'},
+    { src: '/lake2.jpeg'},
+    { src: '/lake3.jpeg'},
   ]
 
   useEffect(() => {
@@ -71,7 +74,7 @@ export default function Home() {
           {heroImages.map((image, index) => (
             <div
               key={image.src}
-              className={`hero-carousel-slide${index === activeIndex ? ' is-active' : ''}`}
+              className={`hero-carousel-slide${index === activeIndex ? ' is-active' : ''}${image.mobileFullFrame ? ' mobile-full-frame' : ''}`}
               style={{
                 backgroundImage: `url(${image.src})`,
                 backgroundPosition: image.position ?? 'center',

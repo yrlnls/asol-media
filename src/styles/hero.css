@@ -71,6 +71,13 @@
   transform: scale(1);
 }
 
+/* These wide compositions need less cropping on portrait screens. */
+@media (max-width: 768px) {
+  .hero-carousel-slide.mobile-full-frame {
+    background-size: 100% auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-carousel-slide {
     transition: none;
@@ -326,28 +333,4 @@
   color: var(--color-text-primary);
   opacity: 0.03;
   font-weight: 400;
-}
-
-@media (max-width: 1024px) {
-  .hero-carousel-slide {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-carousel-slide {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-carousel-slide {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
 }
