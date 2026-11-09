@@ -32,6 +32,7 @@ export default function Home() {
   const heroRef = useRef<HTMLElement | null>(null)
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
   const transitionPendingRef = useRef(false)
+  const failedSlidesRef = useRef(new Set<number>())
   const featuredWorkRef = useReveal(0.1)
   const clientsRef = useReveal(0.1)
   const servicesRef = useReveal(0.1)
@@ -53,15 +54,32 @@ export default function Home() {
     { label: 'Safety', detail: 'Regulations and planning' },
     { label: 'Story', detail: 'Camera movement and coverage' },
   ]
-  const prepareNextSlide = useCallback(() => {
+  const findNextAvailableSlide = useCallback((slideIndex: number, excludedSlideIndex?: number) => {
+    for (let offset = 1; offset < heroBackgroundSlides.length; offset += 1) {
+      const nextIndex = (slideIndex + offset) % heroBackgroundSlides.length
+      if (nextIndex !== excludedSlideIndex && !failedSlidesRef.current.has(nextIndex)) {
+        return nextIndex
+      }
+    }
+
+    return null
+  }, [])
+
+  const prepareNextSlide = useCallback((slideIndex = activeSlideIndex) => {
     if (transitionPendingRef.current) {
+      return
+    }
+
+    const nextIndex = findNextAvailableSlide(slideIndex)
+    if (nextIndex === null) {
+      console.error('Unable to load any homepage background videos.')
       return
     }
 
     transitionPendingRef.current = true
     setNextSlideReady(false)
-    setNextSlideIndex((activeSlideIndex + 1) % heroBackgroundSlides.length)
-  }, [activeSlideIndex])
+    setNextSlideIndex(nextIndex)
+  }, [activeSlideIndex, findNextAvailableSlide])
 
   const markNextSlideReady = useCallback(() => {
     setNextSlideReady(true)
@@ -156,11 +174,31 @@ export default function Home() {
             prepareNextSlide()
           }
         } : undefined}
-        onEnded={isCurrent ? prepareNextSlide : undefined}
+        onEnded={isCurrent ? () => prepareNextSlide() : undefined}
         onError={() => {
           console.error(`Unable to load homepage background video: ${src}`)
-          if (!isCurrent) {
-            markNextSlideReady()
+          failedSlidesRef.current.add(slideIndex)
+
+          if (isCurrent) {
+            transitionPendingRef.current = false
+            prepareNextSlide(slideIndex)
+            return
+          }
+
+          const nextAvailableSlide = findNextAvailableSlide(slideIndex, activeSlideIndex)
+          if (nextAvailableSlide === null) {
+            console.error(
+              failedSlidesRef.current.has(activeSlideIndex)
+                ? 'Unable to load any homepage background videos.'
+                : 'Unable to load additional homepage background videos.'
+            )
+            setNextSlideIndex(null)
+            setNextSlideReady(false)
+            setIsTransitioning(false)
+            transitionPendingRef.current = false
+          } else {
+            setNextSlideReady(false)
+            setNextSlideIndex(nextAvailableSlide)
           }
         }}
       />
