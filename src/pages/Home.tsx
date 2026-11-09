@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { trackButtonClick } from '../lib/analytics'
 import { useReveal } from '../lib/useReveal'
@@ -8,8 +8,30 @@ import ServicesPreview from '../components/home/ServicesPreview'
 import ShopHighlight from '../components/home/ShopHighlight'
 import InsightsPreview from '../components/home/InsightsPreview'
 
+const heroBackgroundSlides = [
+  '/1.mp4',
+  '/2.mp4',
+  '/3.mp4',
+  '/4.mp4',
+  '/5.mp4',
+  '/6.mp4',
+  '/7.mp4',
+  '/8.mp4',
+  '/9.mp4',
+] as const
+
 export default function Home() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
+  const [nextSlideIndex, setNextSlideIndex] = useState<number | null>(null)
+  const [nextSlideReady, setNextSlideReady] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const heroRef = useRef<HTMLElement | null>(null)
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null)
+  const transitionPendingRef = useRef(false)
   const featuredWorkRef = useReveal(0.1)
   const clientsRef = useReveal(0.1)
   const servicesRef = useReveal(0.1)
@@ -31,57 +53,126 @@ export default function Home() {
     { label: 'Safety', detail: 'Regulations and planning' },
     { label: 'Story', detail: 'Camera movement and coverage' },
   ]
-  const heroImages = [
-    { src: '/lp1.jpeg' },
-    { src: '/lp2.jpeg', mobileFullFrame: true },
-    { src: '/lp3.jpeg', mobileFullFrame: true },
-    { src: '/lp4.jpeg', mobileFullFrame: true },
-    { src: '/lp5.jpeg' },
-    { src: '/lp7.jpeg', mobileFullFrame: true },
-    { src: '/lp9.jpeg', mobileFullFrame: true },
-    { src: '/lp10.jpeg', position: 'center 25%' },
-    { src: '/lp13.jpeg' },
-    { src: '/lp14.jpeg', position: 'center 25%', mobileFullFrame: true },
-    { src: '/lp15.jpeg', position: 'center 25%', mobileFullFrame: true },
-    { src: '/lp17.jpeg', mobileFullFrame: true },
-    { src: '/lp18.jpeg' },
-    { src: '/lp19.jpeg' },
-    { src: '/lp20.jpeg', mobileFullFrame: true },
-    { src: '/lp21.jpeg' },
-    { src: '/lp22.jpeg' },
-    { src: '/lp24.jpeg', mobileFullFrame: true },
-    { src: '/lake1.jpeg'},
-    { src: '/lake2.jpeg'},
-    { src: '/lake3.jpeg'},
-  ]
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const prepareNextSlide = useCallback(() => {
+    if (transitionPendingRef.current) {
       return
     }
 
-    const intervalId = window.setInterval(() => {
-      setActiveIndex((index) => (index + 1) % heroImages.length)
-    }, 6000)
+    transitionPendingRef.current = true
+    setNextSlideReady(false)
+    setNextSlideIndex((activeSlideIndex + 1) % heroBackgroundSlides.length)
+  }, [activeSlideIndex])
 
-    return () => window.clearInterval(intervalId)
-  }, [heroImages.length])
+  const markNextSlideReady = useCallback(() => {
+    setNextSlideReady(true)
+    setIsTransitioning(true)
+  }, [])
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateMotionPreference = () => setPrefersReducedMotion(motionPreference.matches)
+
+    motionPreference.addEventListener('change', updateMotionPreference)
+    return () => motionPreference.removeEventListener('change', updateMotionPreference)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion || !heroRef.current) {
+      return
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsHeroVisible(entry.isIntersecting)
+    })
+    observer.observe(heroRef.current)
+
+    return () => observer.disconnect()
+  }, [prefersReducedMotion])
+
+  useEffect(() => {
+    const video = heroVideoRef.current
+    if (!video || prefersReducedMotion) {
+      return
+    }
+
+    const updatePlayback = () => {
+      if (document.hidden || !isHeroVisible) {
+        video.pause()
+      } else {
+        void video.play().catch((error: unknown) => {
+          console.error(`Unable to play homepage background video: ${heroBackgroundSlides[activeSlideIndex]}`, error)
+        })
+      }
+    }
+
+    updatePlayback()
+    document.addEventListener('visibilitychange', updatePlayback)
+    return () => document.removeEventListener('visibilitychange', updatePlayback)
+  }, [activeSlideIndex, isHeroVisible, prefersReducedMotion])
+
+  useEffect(() => {
+    if (nextSlideIndex === null || !nextSlideReady) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setActiveSlideIndex(nextSlideIndex)
+      setNextSlideIndex(null)
+      setNextSlideReady(false)
+      setIsTransitioning(false)
+      transitionPendingRef.current = false
+    }, 1800)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [nextSlideIndex, nextSlideReady])
+
+  const renderSlide = (slideIndex: number, layer: 'current' | 'next') => {
+    const src = heroBackgroundSlides[slideIndex]
+    const isCurrent = layer === 'current'
+    const className = [
+      'hero-carousel-video',
+      isCurrent ? (isTransitioning ? 'is-leaving' : 'is-current') : (isTransitioning ? 'is-entering' : 'is-next'),
+    ].join(' ')
+
+    return (
+      <video
+        key={src}
+        ref={isCurrent ? heroVideoRef : undefined}
+        className={className}
+        src={src}
+        autoPlay={!prefersReducedMotion}
+        muted
+        playsInline
+        preload={isCurrent ? 'auto' : 'metadata'}
+        onCanPlay={isCurrent ? undefined : (event) => {
+          markNextSlideReady()
+          if (document.hidden || !isHeroVisible) {
+            event.currentTarget.pause()
+          }
+        }}
+        onTimeUpdate={isCurrent ? (event) => {
+          const video = event.currentTarget
+          if (video.duration - video.currentTime <= 2.5) {
+            prepareNextSlide()
+          }
+        } : undefined}
+        onEnded={isCurrent ? prepareNextSlide : undefined}
+        onError={() => {
+          console.error(`Unable to load homepage background video: ${src}`)
+          if (!isCurrent) {
+            markNextSlideReady()
+          }
+        }}
+      />
+    )
+  }
 
   return (
     <>
-      <section id="home" className="hero">
+      <section id="home" className="hero" ref={heroRef}>
         <div className="hero-carousel" aria-hidden="true">
-          {heroImages.map((image, index) => (
-            <div
-              key={image.src}
-              className={`hero-carousel-slide${index === activeIndex ? ' is-active' : ''}${image.mobileFullFrame ? ' mobile-full-frame' : ''}`}
-              style={{
-                backgroundImage: `url(${image.src})`,
-                backgroundPosition: image.position ?? 'center',
-                zIndex: index === activeIndex ? 2 : 1,
-              }}
-            />
-          ))}
+          {renderSlide(activeSlideIndex, 'current')}
+          {nextSlideIndex !== null && renderSlide(nextSlideIndex, 'next')}
           <div className="hero-carousel-overlay" />
         </div>
         <div className="hero-inner">
