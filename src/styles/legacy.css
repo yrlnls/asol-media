@@ -3,6 +3,9 @@
    ============================ */
 .legacy {
   padding: var(--space-5xl) 0;
+  background:
+    linear-gradient(180deg, rgba(5, 6, 5, 0.78), rgba(5, 6, 5, 0.9)),
+    url('/lp22.jpeg') center / cover no-repeat;
 }
 
 .legacy-card {
